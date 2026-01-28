@@ -57,7 +57,7 @@ const Skills = () => {
         // Re-attach certificate manually since it's not in the translation string objects (though it could be added there, but easier here if consistent)
         // Actually, matching by index is risky if order changes.
         // Let's hardcode the certificate path based on index 1.
-        certificate: index === 1 ? "/documents/certificado curso, mujeres digitales.pdf" : undefined
+        certificate: index === 1 ? "/documents/Certificado_Mujeres_Digitales.pdf" : undefined
     }));
 
     return (
