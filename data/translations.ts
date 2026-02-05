@@ -75,17 +75,21 @@ export const translations = {
                 {
                     title: "Emisoras Latinas",
                     description: "Plataforma de streaming de radio con más de 15,000 emisoras latinas en vivo. Directorio completo con reproductor optimizado.",
+                },
+                {
+                    title: "UptownHair",
+                    description: "App de reservas para salones de belleza. Plataforma exclusiva con roles para clientes, administradores y empleados.",
+                },
+                {
+                    title: "Mi Portafolio Web",
+                    description: "Portafolio profesional interactivo y bilingüe con animaciones avanzadas y diseño responsivo.",
                 }
             ],
             inProgressTitle: "Proyectos en Desarrollo",
             inProgressSubtitle: "Próximamente... Ideas que están cobrando vida.",
             inProgressItems: [
-                {
-                    title: "UptownHair",
-                    description: "App de reservas para salones de belleza. Plataforma exclusiva con roles para clientes, administradores y empleados.",
-                    tech: ["React", "NestJS", "TypeScript", "MySQL"],
-                    image: "/documents/fondo pagina inicial.JPG"
-                },
+                // UptownHair moved to featured
+
                 {
                     title: "Tejenderas",
                     description: "Sistema de gestión de inventarios y ventas especializado para un local de confecciones, lanas y productos textiles.",
@@ -257,17 +261,21 @@ export const translations = {
                 {
                     title: "Emisoras Latinas",
                     description: "Radio streaming platform with over 15,000 live Latin stations. Complete directory with optimized player.",
+                },
+                {
+                    title: "UptownHair",
+                    description: "Beauty salon booking app. Exclusive platform with roles for clients, admins, and employees.",
+                },
+                {
+                    title: "My Web Portfolio",
+                    description: "Interactive and bilingual professional portfolio with advanced animations and responsive design.",
                 }
             ],
             inProgressTitle: "Projects In Development",
             inProgressSubtitle: "Coming soon... Ideas coming to life.",
             inProgressItems: [
-                {
-                    title: "UptownHair",
-                    description: "Beauty salon booking app. Exclusive platform with roles for clients, admins, and employees.",
-                    tech: ["React", "NestJS", "TypeScript", "MySQL"],
-                    image: "/documents/fondo pagina inicial.JPG"
-                },
+                // UptownHair moved to featured
+
                 {
                     title: "Tejenderas",
                     description: "Inventory and sales management system specialized for a confection, wool, and textile shop.",

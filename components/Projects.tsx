@@ -37,6 +37,22 @@ const Projects = () => {
             github: "#",
             demo: "https://www.emisoraslatinas.online/",
         },
+        {
+            id: 3,
+            tech: ["React", "NestJS", "TypeScript", "MySQL"],
+            category: t.projects.categories.fullstack,
+            image: "/documents/fondo pagina inicial.JPG",
+            github: "#",
+            demo: "https://uptownhair-front-production.up.railway.app/",
+        },
+        {
+            id: 4,
+            tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+            category: t.projects.categories.frontend,
+            image: "/documents/fondo_portafolio.JPG",
+            github: "#",
+            demo: "#",
+        },
     ];
 
     // Merge with translations
