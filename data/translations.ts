@@ -71,36 +71,48 @@ export const translations = {
                 {
                     title: "Dimension Shift",
                     description: "Juego de peleas 3D con escenarios aleatorios y dos niveles intensos. Desarrollado en Unity con C#.",
+                    detailedDescription: "Un emocionante juego de lucha en 3D que transporta a los jugadores a diversos escenarios generados proceduralmente. Incluye mecánicas de combate pulidas, animaciones fluidas y una banda sonora inmersiva que se adapta a la intensidad de la batalla.",
                 },
                 {
                     title: "Emisoras Latinas",
                     description: "Plataforma de streaming de radio con más de 15,000 emisoras latinas en vivo. Directorio completo con reproductor optimizado.",
+                    detailedDescription: "Plataforma web que conecta a usuarios con miles de emisoras de radio de toda Latinoamérica. Ofrece una interfaz intuitiva, categorización por país y género, y una experiencia de audio sin interrupciones mediante streaming de alta calidad.",
                 },
                 {
                     title: "UptownHair",
                     description: "App de reservas para salones de belleza. Plataforma exclusiva con roles para clientes, administradores y empleados.",
+                    detailedDescription: "Solución integral para la gestión de salones de belleza. Permite a los clientes agendar citas en tiempo real, a los empleados gestionar sus agendas y a los administradores supervisar el rendimiento del negocio mediante un panel de control avanzado.",
                 },
                 {
                     title: "Mi Portafolio Web",
                     description: "Portafolio profesional interactivo y bilingüe con animaciones avanzadas y diseño responsivo.",
-                }
+                    detailedDescription: "Este mismo sitio web donde presento mi trabajo y habilidades. Construido con tecnologías modernas para ofrecer una experiencia de usuario fluida, soporte multi-idioma y una estética visualmente atractiva en cualquier dispositivo.",
+                },
+                {
+                    title: "Entre Lanas y Fragancias",
+                    description: "Sistema integral de gestión para tiendas textiles: ecommerce y panel administrativo avanzado.",
+                    detailedDescription: "Una solución completa que combina una tienda virtual para clientes con un potente aplicativo administrativo. El sistema gestiona todo el ciclo comercial: control exhaustivo de inventarios (entradas y salidas), gestión de pedidos web en tiempo real, integración de pagos mediante códigos QR, generación automática de contratos y reportes detallados de ventas y stock.",
+                },
             ],
             inProgressTitle: "Proyectos en Desarrollo",
             inProgressSubtitle: "Próximamente... Ideas que están cobrando vida.",
             inProgressItems: [
                 // UptownHair moved to featured
 
-                {
-                    title: "Tejenderas",
-                    description: "Sistema de gestión de inventarios y ventas especializado para un local de confecciones, lanas y productos textiles.",
-                    tech: ["Next.js", "Laravel", "PostgreSQL"],
-                    image: "/documents/tejenderas-bg.png"
-                },
+
                 {
                     title: "AgroSoft",
                     description: "Sistema de control de ganadería: partos, nacimientos, ventas de leche/ganado e inventario de insumos.",
                     tech: ["Python", "Django", "React", "PostgreSQL"],
-                    image: "/documents/agrosoft-bg.png"
+                    image: "/documents/agrosoft-bg.png",
+                    detailedDescription: "Plataforma innovadora para la digitalización del sector ganadero. Automatiza el seguimiento del ciclo de vida animal (partos y nacimientos), gestiona las ventas diarias de leche y ganado, y prevee necesidades de insumos basándose en datos históricos para optimizar la productividad de la finca."
+                },
+                {
+                    title: "Sinergia",
+                    description: "Empresa familiar de software para apoyar ideas creativas de emprendedores mediante IA, automatización y modernización tecnológica.",
+                    tech: ["IA", "Automation", "Next.js"],
+                    image: "/images/LOGO FINAL-03.png",
+                    detailedDescription: "Una iniciativa dedicada a impulsar el crecimiento de pequeñas y medianas empresas. Aplicamos las últimas tendencias en inteligencia artificial y tecnología moderna para automatizar procesos manuales, modernizar infraestructuras y escalar las ideas creativas de los emprendedores."
                 }
             ]
         },
@@ -257,18 +269,27 @@ export const translations = {
                 {
                     title: "Dimension Shift",
                     description: "3D fighting game with random scenarios and two intense levels. Developed in Unity with C#.",
+                    detailedDescription: "An exciting 3D fighting game that transports players to diverse procedurally generated scenarios. Features polished combat mechanics, fluid animations, and an immersive soundtrack that adapts to the battle's intensity.",
                 },
                 {
                     title: "Emisoras Latinas",
                     description: "Radio streaming platform with over 15,000 live Latin stations. Complete directory with optimized player.",
+                    detailedDescription: "A web platform connecting users with thousands of live radio stations from all over Latin America. Offers an intuitive interface, categorization by country and genre, and a seamless audio experience through high-quality streaming.",
                 },
                 {
                     title: "UptownHair",
                     description: "Beauty salon booking app. Exclusive platform with roles for clients, admins, and employees.",
+                    detailedDescription: "A comprehensive solution for beauty salon management. Allows clients to book appointments in real-time, employees to manage their schedules, and administrators to oversee business performance through an advanced dashboard.",
                 },
                 {
                     title: "My Web Portfolio",
                     description: "Interactive and bilingual professional portfolio with advanced animations and responsive design.",
+                    detailedDescription: "This very website where I showcase my work and skills. Built with modern technologies to offer a smooth user experience, multi-language support, and a visually appealing aesthetic on any device.",
+                },
+                {
+                    title: "Between Wools and Fragrances",
+                    description: "Comprehensive management system for textile shops: ecommerce and advanced admin panel.",
+                    detailedDescription: "A complete solution that combines a virtual store for customers with a powerful administrative application. The system manages the entire commercial cycle: exhaustive inventory control (inflows and outflows), real-time web order management, QR code payment integration, automatic contract generation, and detailed sales and stock reports.",
                 }
             ],
             inProgressTitle: "Projects In Development",
@@ -277,16 +298,18 @@ export const translations = {
                 // UptownHair moved to featured
 
                 {
-                    title: "Tejenderas",
-                    description: "Inventory and sales management system specialized for a confection, wool, and textile shop.",
-                    tech: ["Next.js", "Laravel", "PostgreSQL"],
-                    image: "/documents/tejenderas-bg.png"
-                },
-                {
                     title: "AgroSoft",
                     description: "Cattle control system: calving dates, births, milk/cattle sales, and supplies inventory.",
                     tech: ["Python", "Django", "React", "PostgreSQL"],
-                    image: "/documents/agrosoft-bg.png"
+                    image: "/documents/agrosoft-bg.png",
+                    detailedDescription: "An innovative platform for the digitalization of the livestock sector. It automates animal lifecycle tracking (calving and births), manages daily milk and cattle sales, and predicts supply needs based on historical data to optimize farm productivity."
+                },
+                {
+                    title: "Sinergia",
+                    description: "Family software company to support creative ideas of entrepreneurs through AI, automation, and technological modernization.",
+                    tech: ["AI", "Automation", "Next.js"],
+                    image: "/images/LOGO FINAL-03.png",
+                    detailedDescription: "An initiative dedicated to driving the growth of small and medium-sized businesses. We apply the latest trends in artificial intelligence and modern technology to automate manual processes, modernize infrastructure, and scale the creative ideas of entrepreneurs."
                 }
             ]
         },

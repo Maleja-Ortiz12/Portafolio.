@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github, Folder, X } from "lucide-react";
 
 // Placeholder data - user mentioned grouped by language/tech
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,6 +10,7 @@ import { useLanguage } from "@/context/LanguageContext";
 const Projects = () => {
     const { t } = useLanguage();
     const [activeCategory, setActiveCategory] = useState("Todos");
+    const [selectedProject, setSelectedProject] = useState<any>(null);
 
     const categories = [
         t.projects.categories.all,
@@ -53,18 +54,36 @@ const Projects = () => {
             github: "#",
             demo: "#",
         },
+        {
+            id: 5,
+            tech: ["Next.js", "Laravel", "PostgreSQL"],
+            category: t.projects.categories.fullstack,
+            image: "/images/entrelanasyfragancias.JPG",
+            github: "#",
+            demo: "https://tejenderasfrontend-production.up.railway.app/",
+        },
     ];
 
-    // Merge with translations
-    const projects = projectsStaticData.map((p, index) => ({
+    // Merge with translations for Featured
+    const featuredProjects = projectsStaticData.map((p, index) => ({
         ...p,
-        title: t.projects.items[index]?.title || "", // index matching, fragile but works if order preserved
-        description: t.projects.items[index]?.description || ""
+        title: t.projects.items[index]?.title || "",
+        description: t.projects.items[index]?.description || "",
+        detailedDescription: t.projects.items[index]?.detailedDescription || ""
     }));
 
+    // Merge with translations for In Progress
+    const inProgressProjects = t.projects.inProgressItems.map((item: any) => ({
+        ...item,
+        id: `ip-${item.title}`,
+        detailedDescription: item.detailedDescription || ""
+    }));
+
+    const allProjectsForFilter = [...featuredProjects];
+
     const filteredProjects = activeCategory === t.projects.categories.all
-        ? projects
-        : projects.filter(project => project.category === activeCategory);
+        ? allProjectsForFilter
+        : allProjectsForFilter.filter(project => project.category === activeCategory);
 
     return (
         <section id="projects" className="py-20 bg-slate-950 relative overflow-hidden">
@@ -113,15 +132,17 @@ const Projects = () => {
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.3 }}
                                 key={project.id}
-                                className="group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all shadow-xl"
+                                onClick={() => setSelectedProject(project)}
+                                className="group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all shadow-xl cursor-pointer"
                             >
                                 {/* Image Area */}
                                 <div className="relative h-48 overflow-hidden">
                                     {/* Overlay on Hover */}
                                     <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
-                                        <a href={project.demo} className="p-2 bg-white/10 rounded-full text-white hover:bg-blue-600 transition-colors">
-                                            <ExternalLink size={20} />
-                                        </a>
+                                        <div className="flex items-center gap-2 text-white font-medium bg-blue-600/80 px-4 py-2 rounded-full backdrop-blur-sm">
+                                            <span>Ver detalles</span>
+                                            <ExternalLink size={16} />
+                                        </div>
                                     </div>
                                     <img
                                         src={project.image}
@@ -144,7 +165,7 @@ const Projects = () => {
                                     </p>
 
                                     <div className="flex flex-wrap gap-2 mt-auto">
-                                        {project.tech.map((t) => (
+                                        {project.tech.map((t: string) => (
                                             <span key={t} className="text-xs font-medium px-2 py-1 bg-slate-800 text-slate-300 rounded">
                                                 {t}
                                             </span>
@@ -171,10 +192,11 @@ const Projects = () => {
                         <p className="text-slate-500 text-center mb-10 text-sm uppercase tracking-widest">{t.projects.inProgressSubtitle}</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {t.projects.inProgressItems.map((item: any, idx: number) => (
+                            {inProgressProjects.map((item: any, idx: number) => (
                                 <div
                                     key={idx}
-                                    className={`rounded-xl p-6 relative group overflow-hidden transition-all ${item.image
+                                    onClick={() => setSelectedProject(item)}
+                                    className={`rounded-xl p-6 relative group overflow-hidden transition-all cursor-pointer ${item.image
                                         ? "border border-slate-700/50 shadow-lg hover:shadow-purple-500/20"
                                         : "bg-slate-900/30 border border-slate-800 border-dashed hover:bg-slate-900/50"
                                         }`}
@@ -220,6 +242,92 @@ const Projects = () => {
                         </div>
                     </motion.div>
                 )}
+
+                {/* Detailed View Modal */}
+                <AnimatePresence>
+                    {selectedProject && (
+                        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 pt-20 pb-10">
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={() => setSelectedProject(null)}
+                                className="absolute inset-0 bg-slate-950/90 backdrop-blur-lg"
+                            />
+                            
+                            {/* Modal Content */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                                className="relative bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-3xl max-h-full overflow-hidden shadow-2xl z-10 flex flex-col"
+                            >
+                                {/* Modal Header */}
+                                <div className="flex items-center justify-between p-4 md:p-6 border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-20">
+                                    <h3 className="text-xl md:text-2xl font-bold text-white line-clamp-1">{selectedProject.title}</h3>
+                                    <button
+                                        onClick={() => setSelectedProject(null)}
+                                        className="p-2 bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 rounded-xl transition-all shadow-lg"
+                                    >
+                                        <X size={24} />
+                                    </button>
+                                </div>
+
+                                {/* Scrollable Body */}
+                                <div className="overflow-y-auto flex-1 scrollbar-hide">
+                                    <div className="relative h-64 md:h-80 w-full overflow-hidden">
+                                        <img
+                                            src={selectedProject.image}
+                                            alt={selectedProject.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                                    </div>
+
+                                    <div className="p-6 md:p-10">
+                                        <div className="flex flex-wrap gap-2 mb-8">
+                                            {selectedProject.tech.map((t: string) => (
+                                                <span key={t} className="text-[11px] font-mono uppercase tracking-wider px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-lg">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <div className="prose prose-invert max-w-none mb-10">
+                                            <p className="text-slate-300 leading-relaxed text-lg">
+                                                {selectedProject.detailedDescription}
+                                            </p>
+                                        </div>
+
+                                        <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-800">
+                                            {selectedProject.demo && selectedProject.demo !== "#" && (
+                                                <a
+                                                    href={selectedProject.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-purple-600 text-white rounded-xl hover:bg-purple-500 transition-all font-bold shadow-lg shadow-purple-600/20"
+                                                >
+                                                    Ver Proyecto en Vivo <ExternalLink size={18} />
+                                                </a>
+                                            )}
+                                            {selectedProject.github && selectedProject.github !== "#" && (
+                                                <a
+                                                    href={selectedProject.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all font-bold"
+                                                >
+                                                    Repositorio <Github size={18} />
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );

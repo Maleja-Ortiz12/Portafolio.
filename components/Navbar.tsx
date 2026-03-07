@@ -25,19 +25,19 @@ const Navbar = () => {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-            <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div className="w-full px-4 md:px-10 py-4 flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold text-white tracking-widest">
+                <Link href="/" className="text-2xl font-bold text-white tracking-widest flex-shrink-0">
                     PORTAFOLIO<span className="text-purple-500">.</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="hidden lg:flex items-center space-x-10">
                     {navLinks.map((link) => (
                         <a
                             key={link.title}
                             href={link.href}
-                            className="text-slate-300 hover:text-purple-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider"
+                            className="text-slate-300 hover:text-purple-400 transition-colors duration-300 text-[13px] font-medium uppercase tracking-[0.15em]"
                         >
                             {link.title}
                         </a>
@@ -45,7 +45,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Social / Contact Icons (Desktop) */}
-                <div className="hidden md:flex items-center space-x-4">
+                <div className="hidden lg:flex items-center space-x-4">
                     <button
                         onClick={toggleLanguage}
                         className="flex items-center gap-1 px-2 py-1 bg-slate-800 rounded text-slate-300 hover:text-white transition-colors text-sm font-bold border border-slate-700 hover:border-purple-500/50"
@@ -63,7 +63,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Hamburger */}
-                <div className="md:hidden flex items-center gap-4">
+                <div className="lg:hidden flex items-center gap-4">
                     <button
                         onClick={toggleLanguage}
                         className="flex items-center gap-1 px-2 py-1 bg-slate-800 rounded text-slate-300 hover:text-white transition-colors text-sm font-bold"
@@ -83,7 +83,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="md:hidden absolute top-16 left-0 w-full bg-slate-950 border-b border-slate-800 shadow-xl"
+                        className="lg:hidden absolute top-16 left-0 w-full bg-slate-950 border-b border-slate-800 shadow-xl"
                     >
                         <div className="flex flex-col items-center py-6 space-y-6">
                             {navLinks.map((link) => (
