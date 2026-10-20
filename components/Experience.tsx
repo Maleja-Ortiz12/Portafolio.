@@ -43,10 +43,12 @@ const Experience = () => {
                                 <div className="md:w-[45%] mb-4 md:mb-0">
                                     <div className="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-all shadow-lg">
                                         <h3 className="text-xl font-bold text-white mb-1">{exp.role}</h3>
-                                        <h4 className="text-purple-400 font-medium mb-4 flex items-center gap-2">
-                                            <Briefcase size={16} /> {exp.company}
-                                        </h4>
-                                        <p className="text-slate-400 text-sm leading-relaxed">
+                                        {exp.company && (
+                                            <h4 className="text-purple-400 font-medium mb-4 flex items-center gap-2">
+                                                <Briefcase size={16} /> {exp.company}
+                                            </h4>
+                                        )}
+                                        <p className="mt-4 text-slate-400 text-sm leading-relaxed">
                                             {exp.description}
                                         </p>
                                     </div>

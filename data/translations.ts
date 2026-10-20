@@ -11,17 +11,24 @@ export const translations = {
             contact: "Contacto",
         },
         hero: {
-            available: "Disponible para trabajar y Aprender",
-            role: "Teg. Análisis y Desarrollo de Software",
+            available: "Disponible para oportunidades laborales y proyectos de innovación y crecimiento empresarial",
+            role: "Desarrolladora de Software Junior",
+            summary: "Desarrollo web, móvil y videojuegos con una visión de seguridad. Chía, Cundinamarca · Colombia.",
+            focusLabel: "Explora mi perfil",
+            focusAreas: [
+                { title: "Desarrollo", description: "Proyectos con React, NestJS y Laravel; aplicaciones móviles con Flutter y videojuegos con Unity." },
+                { title: "Ciberseguridad", description: "Experiencia en ciberseguridad: monitoreo SIEM, análisis con WAF y Cortex, y apoyo a controles NIST e ISO 27001." },
+                { title: "Automatización", description: "Automatización de reportes en Excel y formación continua en Power Automate y n8n." },
+            ],
             projects: "Ver Proyectos",
             cv: "Descargar CV",
-            cvFile: "/documents/cv-es.pdf",
+            cvFile: "/documents/maria-alejandra-ortiz-cv.pdf",
         },
         about: {
             title: "Sobre",
             me: "Mí",
-            p1: "Soy estudiante del programa Tecnólogo en Análisis y Desarrollo de Software en el SENA, actualmente finalizando mi etapa lectiva. Me encuentro próxima a iniciar mis prácticas (etapa productiva), con altas expectativas de participar en proyectos desafiantes y fortalecer mi aprendizaje continuamente.",
-            p2: "Más allá del código, mi formación me está preparando para ser una solucionadora de problemas completa. Combino competencias técnicas sólidas en análisis, diseño y pruebas con habilidades humanas esenciales como la disciplina, la adaptabilidad y el aprendizaje autónomo. Mi objetivo es crear soluciones tecnológicas que no solo funcionen, sino que aporten al desarrollo social y empresarial.",
+            p1: "Soy tecnóloga en Análisis y Desarrollo de Software del SENA, con certificación en trámite. He desarrollado proyectos full stack, móviles y de videojuegos con React, NestJS, Laravel, Flutter y Unity. Estoy disponible para oportunidades laborales y proyectos que impulsen la innovación y el crecimiento empresarial.",
+            p2: "Durante mi experiencia práctica en ciberseguridad, monitoreé alertas con SIEM, apoyé la validación de controles NIST e ISO 27001 y automaticé reportes y documentación. Esa experiencia me aporta una visión de seguridad al construir software. Continúo formándome en Power Automate y n8n, con organización, atención al detalle y aprendizaje autónomo.",
             qualities: {
                 ethics: "Ética y Calidad",
                 ethicsDesc: "Compromiso inquebrantable con el desarrollo de software robusto y responsable.",
@@ -36,27 +43,51 @@ export const translations = {
         skills: {
             title: "Habilidades y",
             education: "Educación",
-            subtitle: "Mi arsenal técnico y el camino de aprendizaje que he recorrido para convertirme en el profesional que soy hoy.",
+            subtitle: "Herramientas, formación y conocimientos de desarrollo, seguridad y automatización incluidos en mi hoja de vida.",
+            groups: ["Lenguajes", "Desarrollo web", "Móvil y videojuegos", "Bases de datos y herramientas", "Automatización · en formación", "Ciberseguridad"],
             techSkills: "Competencias Técnicas",
             eduCert: "Educación y Certificados",
             continuousLearning: "Aprendizaje Continuo",
             continuousLearningDesc: "Siempre actualizándome con nuevas tecnologías.",
             eduItems: [
                 {
-                    title: "Tecnólogo en Análisis y Desarrollo de Software",
-                    institution: "SENA",
-                    year: "Finalizando Etapa Lectiva, próxima a entrar a la etapa de prácticas - 2026",
-                    description: "Formación integral en desarrollo de software, calidad y trabajo colaborativo.",
+                    title: "Tecnología en Análisis y Desarrollo de Software",
+                    institution: "SENA · CDA Chía",
+                    year: "Octubre de 2026 · Certificación en trámite",
+                    description: "Formación finalizada en desarrollo de software, con proyectos web, móviles y de videojuegos.",
                 },
                 {
-                    title: "Certificación DESARROLLO WEB BACKEND NESTJS",
-                    institution: "El Servicio Nacional de Aprendizaje - SENA, Cámara Colombiana de Comercio Electrónico",
-                    year: "2025",
-                    description: "Curso intensivo de desarrollo backend con NestJS.",
+                    title: "Desarrollo Web Backend con NestJS",
+                    institution: "SENA / AHK Colombia / Organización KEY",
+                    year: "Septiembre–noviembre de 2025",
+                    description: "80 horas técnicas y 14 horas de habilidades blandas.",
+                },
+                {
+                    title: "Técnica en Secretariado",
+                    institution: "Formación técnica",
+                    year: "2013–2024",
+                    description: "Organización y documentación como complemento a mi perfil técnico.",
+                },
+                {
+                    title: "Cursos de programación en Python y C++",
+                    institution: "Formación complementaria",
+                    year: "Aprendizaje continuo",
+                    description: "Conocimientos de programación en Python y C++.",
                 }
             ]
         },
         projects: {
+            details: "Ver detalles",
+            live: "Ver proyecto en vivo",
+            repository: "Repositorio",
+            close: "Cerrar detalles",
+            cvItems: [
+                { title: "Proyecto de grado SENA", stack: "React · NestJS · PostgreSQL · TypeScript", description: "Sistema web full stack para gestión de usuarios y reservas, con backend en NestJS y frontend en React con TypeScript." },
+                { title: "Sistema de gestión de inventarios", stack: "PHP · Laravel", description: "Aplicación web para el control de inventario orientada a pequeños negocios." },
+                { title: "uptwonhair", stack: "JavaScript · HTML · CSS", description: "Aplicación web de gestión para peluquerías, con agenda y servicios." },
+                { title: "Aplicación de gestión agropecuaria", stack: "Flutter · Dart", description: "Aplicación móvil para agrónomos y ganaderos: ganadería, cultivos, gastos y finanzas agrícolas." },
+                { title: "Videojuego 2D", stack: "C# · Unity", description: "Videojuego 2D con lógica de jugabilidad, mecánicas e interfaz." },
+            ],
             title: "Proyectos",
             featured: "Destacados",
             subtitle: "Una selección de mis trabajos recientes, demostrando capacidades en diferentes áreas del desarrollo.",
@@ -65,7 +96,8 @@ export const translations = {
                 gamedev: "Game Dev",
                 frontend: "Frontend",
                 fullstack: "Full Stack",
-                backend: "Backend"
+                backend: "Backend",
+                mobile: "Móvil"
             },
             items: [
                 {
@@ -117,39 +149,21 @@ export const translations = {
             ]
         },
         experience: {
-            title: "Trayectoria de",
-            learning: "Aprendizaje",
+            title: "Experiencia",
+            learning: "Profesional",
             items: [
                 {
-                    role: "Análisis y Planeación",
-                    company: "Fase Inicial",
-                    period: "Etapa 1",
-                    description: "Levantamiento de requisitos, diagramas de flujo, lógica algorítmica y diseño de la arquitectura del software bajo metodologías ágiles.",
-                },
-                {
-                    role: "Ejecución y Desarrollo",
-                    company: "Fase de Construcción",
-                    period: "Etapa 2",
-                    description: "Programación frontend y backend (Java, PHP, TS). Gestión de bases de datos (SQL/NoSQL) y control de versiones con Git/GitHub.",
-                },
-                {
-                    role: "Pruebas y Calidad",
-                    company: "Fase de Verificación",
-                    period: "Etapa 3",
-                    description: "Implementación de buenas prácticas de calidad, ejecución de pruebas unitarias y de integración, y aseguramiento de estándares de código.",
-                },
-                {
-                    role: "Mantenimiento e Implantación",
-                    company: "Fase Final",
-                    period: "Etapa 4",
-                    description: "Aplicación y operación de la solución de software desarrollada. Despliegue en entornos productivos y soporte continuo.",
+                    role: "Practicante en Ciberseguridad",
+                    company: "",
+                    period: "Abril–octubre de 2026",
+                    description: "Monitoreo y análisis de alertas con SIEM, WAF y antivirus Cortex. Apoyo a la validación de controles NIST e ISO 27001, monitoreo remoto con N-central y gestión de incidencias en Mantis. Automatización de reportes en Excel y elaboración de documentación técnica, indicadores y presentaciones de resultados.",
                 },
             ]
         },
         services: {
             title: "Servicios y",
             subtitle: "Soluciones",
-            intro: "Como egresada del SENA en Análisis y Desarrollo de Software, ofrezco un conjunto integral de servicios técnicos enfocados en resolver problemas empresariales reales.",
+            intro: "Como desarrolladora junior, puedo aportar en desarrollo web y móvil, bases de datos, automatización y apoyo en ciberseguridad, con disposición para aprender y trabajar en equipo.",
             items: [
                 {
                     title: "Desarrollo Web y Móvil",
@@ -157,29 +171,29 @@ export const translations = {
                 },
                 {
                     title: "Gestión de Bases de Datos",
-                    description: "Diseño, modelado y optimización de bases de datos relacionales (MySQL) y no relacionales (MongoDB).",
+                    description: "Trabajo con bases de datos relacionales MySQL y PostgreSQL en proyectos de desarrollo.",
                 },
                 {
-                    title: "Análisis y Diseño",
-                    description: "Levantamiento de requisitos, especificación funcional y diseño de arquitectura de software.",
+                    title: "Automatización de Reportes",
+                    description: "Experiencia con reportes en Excel y formación en Power Automate y n8n.",
                 },
                 {
-                    title: "Implementación y QA",
-                    description: "Escritura de código limpio (Clean Code) y ejecución de pruebas para asegurar la calidad.",
+                    title: "Apoyo en Ciberseguridad",
+                    description: "Monitoreo de alertas y apoyo a controles de seguridad, documentación y seguimiento de incidencias.",
                 },
             ],
             keyRoles: {
                 title: "Roles Clave",
-                items: ["Desarrollador de Software", "Analista de Requisitos", "Admin. de Bases de Datos", "Tester QA"]
+                items: ["Desarrolladora Junior", "Desarrollo Web y Móvil", "Apoyo en Ciberseguridad", "Documentación Técnica"]
             },
             softSkills: {
                 title: "Habilidades Transversales",
-                items: ["Trabajo en Equipo", "Pensamiento Crítico", "Adaptabilidad", "Scrum y Git"]
+                items: ["Trabajo en Equipo", "Organización", "Atención al Detalle", "Aprendizaje Autónomo"]
             }
         },
         footer: {
             title: "¿Tienes un proyecto en mente?",
-            subtitle: "Estoy siempre abierto a discutir nuevos proyectos, ideas creativas o oportunidades para ser parte de tus visiones.",
+            subtitle: "Estoy abierta a oportunidades como desarrolladora junior y a proyectos donde pueda aportar mis conocimientos de desarrollo y seguridad.",
             cta: "¡Hablemos!",
             whatsapp: "Escríbeme al WhatsApp",
             rights: "Todos los derechos reservados.",
@@ -209,17 +223,24 @@ export const translations = {
             contact: "Contact",
         },
         hero: {
-            available: "Available to work and Learn",
-            role: "Software Analysis and Development Technologist",
+            available: "Available for career opportunities, innovation and business growth projects",
+            role: "Junior Software Developer",
+            summary: "Web, mobile and game development with a security perspective. Chía, Cundinamarca · Colombia.",
+            focusLabel: "Explore my profile",
+            focusAreas: [
+                { title: "Development", description: "Projects with React, NestJS and Laravel; mobile applications with Flutter and games with Unity." },
+                { title: "Cybersecurity", description: "Cybersecurity experience: SIEM monitoring, WAF and Cortex analysis, and support for NIST and ISO 27001 controls." },
+                { title: "Automation", description: "Excel report automation and ongoing learning in Power Automate and n8n." },
+            ],
             projects: "View Projects",
             cv: "Download CV",
-            cvFile: "/documents/cv-en.pdf",
+            cvFile: "/documents/maria-alejandra-ortiz-cv.pdf",
         },
         about: {
             title: "About",
             me: "Me",
-            p1: "I am a student of the Software Analysis and Development Technology program at SENA, currently finishing my elective stage. I am about to start my internship (productive stage), with high expectations of participating in challenging projects and continuously strengthening my learning.",
-            p2: "Beyond code, my training is preparing me to be a complete problem solver. I combine solid technical competencies in analysis, design, and testing with essential human skills such as discipline, adaptability, and autonomous learning. My goal is to create technological solutions that not only work but also contribute to social and business development.",
+            p1: "I completed the Software Analysis and Development technology program at SENA; certification is pending. My projects span full-stack development, mobile apps and games using React, NestJS, Laravel, Flutter and Unity. I am available for career opportunities and projects that drive innovation and business growth.",
+            p2: "During my cybersecurity internship, I monitored SIEM alerts, supported NIST and ISO 27001 control validation, and automated reports and documentation. That experience brings a security perspective to the software I build. I continue learning Power Automate and n8n, with attention to detail, organization and independent learning.",
             qualities: {
                 ethics: "Ethics & Quality",
                 ethicsDesc: "Unwavering commitment to robust and responsible software development.",
@@ -234,27 +255,51 @@ export const translations = {
         skills: {
             title: "Skills &",
             education: "Education",
-            subtitle: "My technical arsenal and the learning path I have traveled to become the professional I am today.",
+            subtitle: "Development, security and automation tools, education and knowledge from my résumé.",
+            groups: ["Languages", "Web development", "Mobile & games", "Databases & tools", "Automation · ongoing learning", "Cybersecurity"],
             techSkills: "Technical Competencies",
             eduCert: "Education & Certificates",
             continuousLearning: "Continuous Learning",
             continuousLearningDesc: "Always updating myself with new technologies.",
             eduItems: [
                 {
-                    title: "Software Analysis and Development Technologist",
-                    institution: "SENA",
-                    year: "Finishing Elective Stage, soon to enter internship stage - 2026",
-                    description: "Comprehensive training in software development, quality, and collaborative work.",
+                    title: "Software Analysis and Development Technology",
+                    institution: "SENA · CDA Chía",
+                    year: "October 2026 · Certification pending",
+                    description: "Completed software development program with web, mobile and game projects.",
                 },
                 {
-                    title: "NESTJS BACKEND WEB DEVELOPMENT Certification",
-                    institution: "National Learning Service - SENA, Colombian Chamber of Electronic Commerce",
-                    year: "2025",
-                    description: "Intensive backend development course with NestJS.",
+                    title: "Backend Web Development with NestJS",
+                    institution: "SENA / AHK Colombia / KEY Organization",
+                    year: "September–November 2025",
+                    description: "80 technical hours and 14 soft-skill hours.",
+                },
+                {
+                    title: "Secretarial Technical Training",
+                    institution: "Technical training",
+                    year: "2013–2024",
+                    description: "Organization and documentation complementing my technical profile.",
+                },
+                {
+                    title: "Python and C++ Programming Courses",
+                    institution: "Additional training",
+                    year: "Continuous learning",
+                    description: "Programming knowledge in Python and C++.",
                 }
             ]
         },
         projects: {
+            details: "View details",
+            live: "View live project",
+            repository: "Repository",
+            close: "Close details",
+            cvItems: [
+                { title: "SENA Degree Project", stack: "React · NestJS · PostgreSQL · TypeScript", description: "Full-stack web system for user and reservation management, with a NestJS backend and a React frontend using TypeScript." },
+                { title: "Inventory Management System", stack: "PHP · Laravel", description: "Web application for inventory control aimed at small businesses." },
+                { title: "uptwonhair", stack: "JavaScript · HTML · CSS", description: "Salon management web application covering scheduling and services." },
+                { title: "Agricultural Management Application", stack: "Flutter · Dart", description: "Mobile application for agronomists and livestock farmers: livestock, crops, expenses and agricultural finances." },
+                { title: "2D Video Game", stack: "C# · Unity", description: "2D video game with gameplay logic, mechanics and interface." },
+            ],
             title: "Featured",
             featured: "Projects",
             subtitle: "A selection of my recent work, demonstrating capabilities in different areas of development.",
@@ -263,7 +308,8 @@ export const translations = {
                 gamedev: "Game Dev",
                 frontend: "Frontend",
                 fullstack: "Full Stack",
-                backend: "Backend"
+                backend: "Backend",
+                mobile: "Mobile"
             },
             items: [
                 {
@@ -314,39 +360,21 @@ export const translations = {
             ]
         },
         experience: {
-            title: "Learning",
-            learning: "Trajectory",
+            title: "Professional",
+            learning: "Experience",
             items: [
                 {
-                    role: "Analysis and Planning",
-                    company: "Initial Phase",
-                    period: "Stage 1",
-                    description: "Requirements gathering, flowcharts, algorithmic logic, and software architecture design under agile methodologies.",
-                },
-                {
-                    role: "Execution and Development",
-                    company: "Construction Phase",
-                    period: "Stage 2",
-                    description: "Frontend and backend programming (Java, PHP, TS). Database management (SQL/NoSQL) and version control with Git/GitHub.",
-                },
-                {
-                    role: "Testing and Quality",
-                    company: "Verification Phase",
-                    period: "Stage 3",
-                    description: "Implementation of quality best practices, execution of unit and integration tests, and assurance of code standards.",
-                },
-                {
-                    role: "Maintenance and Implementation",
-                    company: "Final Phase",
-                    period: "Stage 4",
-                    description: "Application and operation of the developed software solution. Deployment in productive environments and continuous support.",
+                    role: "Cybersecurity Intern",
+                    company: "",
+                    period: "April–October 2026",
+                    description: "Monitored and analyzed alerts with SIEM, WAF and Cortex antivirus. Supported NIST and ISO 27001 control validation, remote monitoring with N-central and incident management in Mantis. Automated Excel reports and prepared technical documentation, indicators and results presentations.",
                 },
             ]
         },
         services: {
             title: "Services &",
             subtitle: "Solutions",
-            intro: "As a SENA graduate in Software Analysis and Development, I offer a comprehensive set of technical services focused on solving real business problems.",
+            intro: "As a junior developer, I can contribute to web and mobile development, databases, automation and cybersecurity support, with a willingness to learn and collaborate.",
             items: [
                 {
                     title: "Web & Mobile Development",
@@ -354,29 +382,29 @@ export const translations = {
                 },
                 {
                     title: "Database Management",
-                    description: "Design, modeling, and optimization of relational (MySQL) and non-relational (MongoDB) databases.",
+                    description: "Working with MySQL and PostgreSQL relational databases in development projects.",
                 },
                 {
-                    title: "Analysis & Design",
-                    description: "Requirements gathering, functional specification, and software architecture design.",
+                    title: "Report Automation",
+                    description: "Excel reporting experience and ongoing learning in Power Automate and n8n.",
                 },
                 {
-                    title: "Implementation & QA",
-                    description: "Clean Code writing and comprehensive testing execution to ensure quality.",
+                    title: "Cybersecurity Support",
+                    description: "Alert monitoring and support for security controls, documentation and incident tracking.",
                 },
             ],
             keyRoles: {
                 title: "Key Roles",
-                items: ["Software Developer", "Requirements Analyst", "Database Administrator", "QA Tester"]
+                items: ["Junior Developer", "Web & Mobile Development", "Cybersecurity Support", "Technical Documentation"]
             },
             softSkills: {
                 title: "Soft Skills",
-                items: ["Teamwork", "Critical Thinking", "Adaptability", "Scrum & Git"]
+                items: ["Teamwork", "Organization", "Attention to Detail", "Independent Learning"]
             }
         },
         footer: {
             title: "Have a project in mind?",
-            subtitle: "I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
+            subtitle: "I am open to junior developer opportunities and projects where I can contribute my development and security knowledge.",
             cta: "Let's Talk!",
             whatsapp: "Text me on WhatsApp",
             rights: "All rights reserved.",

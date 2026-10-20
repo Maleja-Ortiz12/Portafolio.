@@ -3,29 +3,29 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export const TypewriterText = ({ text, className }: { text: string, className?: string }) => {
-    const [displayedText, setDisplayedText] = useState("");
+type TypewriterTextProps = { text: string; className?: string };
+
+// A text change remounts the animation so its timer and index reset together.
+export const TypewriterText = (props: TypewriterTextProps) => (
+    <TypewriterAnimation key={props.text} {...props} />
+);
+
+const TypewriterAnimation = ({ text, className }: TypewriterTextProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        setDisplayedText("");
-        setCurrentIndex(0);
-    }, [text]);
+        if (currentIndex >= text.length) return;
 
-    useEffect(() => {
-        if (currentIndex < text.length) {
-            const timeout = setTimeout(() => {
-                setDisplayedText(prev => prev + text[currentIndex]);
-                setCurrentIndex(prev => prev + 1);
-            }, 50); // Speed of typing
+        const timeout = setTimeout(() => {
+            setCurrentIndex(index => index + 1);
+        }, 50);
 
-            return () => clearTimeout(timeout);
-        }
+        return () => clearTimeout(timeout);
     }, [currentIndex, text]);
 
     return (
         <span className={className}>
-            {displayedText}
+            {text.slice(0, currentIndex)}
             <motion.span
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}

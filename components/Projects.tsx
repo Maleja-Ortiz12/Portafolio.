@@ -1,92 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Folder, X } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { ExternalLink, Github, Folder, X, Code2 } from "lucide-react";
+import { filterProjects, getFeaturedProjects, type ProjectCategory, type ProjectDetails } from "@/data/projects";
+import { TechnologyBadge } from "@/components/TechnologyBadge";
 
 // Placeholder data - user mentioned grouped by language/tech
 import { useLanguage } from "@/context/LanguageContext";
 
 const Projects = () => {
     const { t } = useLanguage();
-    const [activeCategory, setActiveCategory] = useState("Todos");
-    const [selectedProject, setSelectedProject] = useState<any>(null);
-
-    const categories = [
-        t.projects.categories.all,
-        t.projects.categories.gamedev,
-        t.projects.categories.frontend,
-        t.projects.categories.fullstack
-        // Backend not used in current set? "Full Stack" is used.
-    ];
-
-    // Static data that doesn't change with language
-    const projectsStaticData = [
-        {
-            id: 1,
-            tech: ["Unity 3D", "C#", "Game Design"],
-            category: t.projects.categories.gamedev, // Use translated category to match filter
-            image: "/documents/imagenjuego.JPG",
-            github: "#",
-            demo: "https://malejaconeja12.itch.io/dimension-shift",
-        },
-        {
-            id: 2,
-            tech: ["Next.js", "Streaming", "Web Audio API"],
-            category: t.projects.categories.frontend,
-            image: "/documents/emisoras latinas.JPG",
-            github: "#",
-            demo: "https://www.emisoraslatinas.online/",
-        },
-        {
-            id: 3,
-            tech: ["React", "NestJS", "TypeScript", "MySQL"],
-            category: t.projects.categories.fullstack,
-            image: "/documents/fondo pagina inicial.JPG",
-            github: "#",
-            demo: "https://uptownhair-front-production.up.railway.app/",
-        },
-        {
-            id: 4,
-            tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-            category: t.projects.categories.frontend,
-            image: "/documents/fondo_portafolio.JPG",
-            github: "#",
-            demo: "#",
-        },
-        {
-            id: 5,
-            tech: ["Next.js", "Laravel", "PostgreSQL"],
-            category: t.projects.categories.fullstack,
-            image: "/images/entrelanasyfragancias.JPG",
-            github: "#",
-            demo: "https://tejenderasfrontend-production.up.railway.app/",
-        },
-    ];
-
-    // Merge with translations for Featured
-    const featuredProjects = projectsStaticData.map((p, index) => ({
-        ...p,
-        title: t.projects.items[index]?.title || "",
-        description: t.projects.items[index]?.description || "",
-        detailedDescription: t.projects.items[index]?.detailedDescription || ""
+    const reducedMotion = useReducedMotion();
+    const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
+    const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
+    const categories: ProjectCategory[] = ["all", "gamedev", "frontend", "fullstack", "backend", "mobile"];
+    const filteredProjects = filterProjects(getFeaturedProjects(t.projects), activeCategory);
+    const inProgressProjects = t.projects.inProgressItems.map(item => ({
+        ...item, id: `ip-${item.title}`, detailedDescription: item.detailedDescription || "",
     }));
-
-    // Merge with translations for In Progress
-    const inProgressProjects = t.projects.inProgressItems.map((item: any) => ({
-        ...item,
-        id: `ip-${item.title}`,
-        detailedDescription: item.detailedDescription || ""
-    }));
-
-    const allProjectsForFilter = [...featuredProjects];
-
-    const filteredProjects = activeCategory === t.projects.categories.all
-        ? allProjectsForFilter
-        : allProjectsForFilter.filter(project => project.category === activeCategory);
 
     return (
-        <section id="projects" className="py-20 bg-slate-950 relative overflow-hidden">
+        <section id="projects" className="projects-3d py-20 bg-slate-950 relative overflow-hidden">
             {/* Decorative Background Element */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] -z-0" />
 
@@ -109,13 +44,15 @@ const Projects = () => {
                         {categories.map((cat) => (
                             <button
                                 key={cat}
+                                type="button"
+                                aria-pressed={activeCategory === cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat
                                     ? "bg-purple-600 text-white shadow-lg shadow-purple-500/25"
                                     : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white"
                                     }`}
                             >
-                                {cat}
+                                {t.projects.categories[cat]}
                             </button>
                         ))}
                     </div>
@@ -127,28 +64,32 @@ const Projects = () => {
                         {filteredProjects.map((project) => (
                             <motion.div
                                 layout
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={reducedMotion === false ? { opacity: 0, scale: 0.9 } : false}
                                 animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
+                                exit={reducedMotion === false ? { opacity: 0, scale: 0.9 } : undefined}
                                 transition={{ duration: 0.3 }}
                                 key={project.id}
-                                onClick={() => setSelectedProject(project)}
-                                className="group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all shadow-xl cursor-pointer"
+                                className="project-card group relative rounded-2xl border border-slate-700 bg-slate-900 shadow-xl"
+                                data-category={project.category}
                             >
+                                <button type="button" onClick={() => setSelectedProject(project)} aria-label={`${t.projects.details}: ${project.title}`} className="project-card-trigger absolute inset-0 z-20 rounded-2xl cursor-pointer" />
                                 {/* Image Area */}
-                                <div className="relative h-48 overflow-hidden">
+                                <div className="relative h-48 overflow-hidden rounded-t-2xl">
                                     {/* Overlay on Hover */}
                                     <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
                                         <div className="flex items-center gap-2 text-white font-medium bg-blue-600/80 px-4 py-2 rounded-full backdrop-blur-sm">
-                                            <span>Ver detalles</span>
+                                            <span>{t.projects.details}</span>
                                             <ExternalLink size={16} />
                                         </div>
                                     </div>
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                    />
+                                    {project.image ? (
+                                        <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                    ) : (
+                                        <div aria-hidden="true" className="project-blueprint flex h-full items-center justify-center">
+                                            <div className="project-wireframe"><Code2 size={42} strokeWidth={1.5} /></div>
+                                            <span className="absolute bottom-4 left-5 font-mono text-xs tracking-[0.2em] text-indigo-200">{project.tech.slice(0, 2).join(" / ")}</span>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Content Area */}
@@ -166,9 +107,7 @@ const Projects = () => {
 
                                     <div className="flex flex-wrap gap-2 mt-auto">
                                         {project.tech.map((t: string) => (
-                                            <span key={t} className="text-xs font-medium px-2 py-1 bg-slate-800 text-slate-300 rounded">
-                                                {t}
-                                            </span>
+                                            <TechnologyBadge key={t} name={t} />
                                         ))}
                                     </div>
                                 </div>
@@ -192,7 +131,7 @@ const Projects = () => {
                         <p className="text-slate-500 text-center mb-10 text-sm uppercase tracking-widest">{t.projects.inProgressSubtitle}</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {inProgressProjects.map((item: any, idx: number) => (
+                            {inProgressProjects.map((item, idx) => (
                                 <div
                                     key={idx}
                                     onClick={() => setSelectedProject(item)}
@@ -268,6 +207,7 @@ const Projects = () => {
                                     <h3 className="text-xl md:text-2xl font-bold text-white line-clamp-1">{selectedProject.title}</h3>
                                     <button
                                         onClick={() => setSelectedProject(null)}
+                                        aria-label={t.projects.close}
                                         className="p-2 bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 rounded-xl transition-all shadow-lg"
                                     >
                                         <X size={24} />
@@ -277,11 +217,11 @@ const Projects = () => {
                                 {/* Scrollable Body */}
                                 <div className="overflow-y-auto flex-1 scrollbar-hide">
                                     <div className="relative h-64 md:h-80 w-full overflow-hidden">
-                                        <img
-                                            src={selectedProject.image}
-                                            alt={selectedProject.title}
-                                            className="w-full h-full object-cover"
-                                        />
+                                        {selectedProject.image ? (
+                                            <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div aria-hidden="true" className="project-blueprint flex h-full items-center justify-center"><div className="project-wireframe"><Code2 size={48} /></div></div>
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
                                     </div>
 
@@ -308,7 +248,7 @@ const Projects = () => {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-center gap-2 px-8 py-3.5 bg-purple-600 text-white rounded-xl hover:bg-purple-500 transition-all font-bold shadow-lg shadow-purple-600/20"
                                                 >
-                                                    Ver Proyecto en Vivo <ExternalLink size={18} />
+                                                    {t.projects.live} <ExternalLink size={18} />
                                                 </a>
                                             )}
                                             {selectedProject.github && selectedProject.github !== "#" && (
@@ -318,7 +258,7 @@ const Projects = () => {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all font-bold"
                                                 >
-                                                    Repositorio <Github size={18} />
+                                                    {t.projects.repository} <Github size={18} />
                                                 </a>
                                             )}
                                         </div>

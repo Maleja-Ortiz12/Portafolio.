@@ -1,91 +1,105 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { TypewriterText } from "@/components/TypewriterText";
-import { ArrowRight, Download } from "lucide-react";
+import Image from "next/image";
+import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { ArrowDown, ArrowRight, Download, Code2, ShieldCheck, Workflow } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useState, type PointerEvent } from "react";
+
+const focusIcons = [Code2, ShieldCheck, Workflow];
 
 const Hero = () => {
     const { t } = useLanguage();
+    const [activeFocus, setActiveFocus] = useState(0);
+    const reducedMotion = useReducedMotion();
+    const tiltX = useMotionValue(0);
+    const tiltY = useMotionValue(0);
+    const rotateX = useSpring(tiltX, { stiffness: 140, damping: 24 });
+    const rotateY = useSpring(tiltY, { stiffness: 140, damping: 24 });
+
+    const resetTilt = () => {
+        tiltX.set(0);
+        tiltY.set(0);
+    };
+
+    const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+        if (reducedMotion !== false || event.pointerType !== "mouse") return;
+        const bounds = event.currentTarget.getBoundingClientRect();
+        tiltX.set(((event.clientY - bounds.top) / bounds.height - 0.5) * -12);
+        tiltY.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 12);
+    };
 
     return (
-        <section
-            id="hero"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-16 pb-40"
-        >
-            {/* Background Gradient Blob */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse delay-1000" />
-            </div>
+        <section id="hero" className="professional-hero relative isolate overflow-hidden bg-slate-950 px-5 pb-16 pt-28 text-center sm:px-6 sm:pt-32">
+            <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0 -z-10" />
+            <div aria-hidden="true" className="hero-aura pointer-events-none absolute left-1/2 top-16 -z-10 h-[34rem] w-[min(90vw,44rem)] -translate-x-1/2 rounded-full bg-indigo-500/15 blur-[100px]" />
 
-            <div className="container mx-auto px-6 z-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    {/* Avatar */}
-                    <div className="mb-8 relative w-48 h-48 mx-auto">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-blue-600 rounded-full blur-[20px] opacity-50 animate-pulse" />
-                        <img
-                            src="/images/avatar.png"
-                            alt="Avatar"
-                            className="relative w-full h-full object-cover rounded-full border-2 border-slate-700 shadow-2xl"
-                        />
+            <div className="relative mx-auto flex max-w-4xl flex-col items-center">
+                <div className="hero-scene relative mb-6 grid h-72 w-72 place-items-center sm:h-80 sm:w-80">
+                    <div aria-hidden="true" className="hero-platform" />
+                    <div aria-hidden="true" className="hero-ring-plane"><div className="hero-ring" /></div>
+                    <div aria-hidden="true" className="hero-ring-plane hero-ring-plane-alt"><div className="hero-ring hero-ring-alt" /></div>
+                    <div aria-hidden="true" className="hero-tech-plate hero-tech-react">React<span>&lt;/&gt;</span></div>
+                    <div aria-hidden="true" className="hero-tech-plate hero-tech-typescript">TS<span>TypeScript</span></div>
+                    <div aria-hidden="true" className="hero-tech-plate hero-tech-security"><Workflow size={20} /><span>Automate</span></div>
+                    <div className="hero-perspective hero-photo-float relative z-10 mx-auto w-40 sm:w-44" onPointerMove={handlePointerMove} onPointerLeave={resetTilt} onPointerCancel={resetTilt}>
+                        <div aria-hidden="true" className="hero-orbit absolute -inset-3 rounded-[2.5rem] border border-indigo-300/40" />
+                        <div aria-hidden="true" className="hero-orbit-secondary absolute -inset-5 rounded-[2.5rem] border border-sky-300/15" />
+                        <motion.div
+                            style={{ rotateX: reducedMotion === false ? rotateX : 0, rotateY: reducedMotion === false ? rotateY : 0 }}
+                            className="hero-portrait hero-photo-frame relative rounded-[2rem] border border-white/20 bg-slate-900 p-2 shadow-[0_20px_70px_-15px_rgba(129,140,248,0.5)]"
+                        >
+                            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-slate-800">
+                                <Image src="/images/maria-alejandra-ortiz.jpeg" alt="María Alejandra Ortiz Páez" fill priority sizes="(min-width: 640px) 176px, 160px" className="object-cover object-top" />
+                            </div>
+                            <div aria-hidden="true" className="hero-depth-badge absolute -right-5 bottom-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-indigo-200/30 bg-slate-900 text-lg font-semibold text-indigo-200 shadow-xl">&lt;/&gt;</div>
+                        </motion.div>
                     </div>
+                </div>
 
-                    <span className="inline-block py-1 px-3 rounded-full bg-slate-800/50 border border-slate-700 text-purple-300 text-sm font-medium mb-6">
+                <div className="hero-enter flex w-full flex-col items-center">
+                    <span className="hero-availability mb-5 inline-flex max-w-2xl items-center justify-center gap-3 rounded-2xl border border-teal-300/25 bg-teal-300/5 px-5 py-3 text-sm font-medium leading-relaxed text-teal-100 sm:text-base">
+                        <span aria-hidden="true" className="hero-status-dot h-2 w-2 shrink-0 rounded-full bg-teal-300" />
                         {t.hero.available}
                     </span>
-
-                    <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
-                        Maria Alejandra <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
-                            Ortiz Paez
-                        </span>
+                    <h1 className="mb-4 text-[clamp(2.25rem,6vw,4.5rem)] font-semibold leading-[1.12] tracking-tight text-white">
+                        María Alejandra <span className="hero-name-gradient block bg-gradient-to-r from-indigo-300 via-purple-300 to-sky-300 bg-clip-text text-transparent sm:inline">Ortiz Páez</span>
                     </h1>
+                    <p className="mb-3 text-xl font-medium text-indigo-200 sm:text-2xl">{t.hero.role}</p>
+                    <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">{t.hero.summary}</p>
 
-                    <p className="text-slate-400 text-lg md:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed font-semibold min-h-[3rem]">
-                        <TypewriterText text={t.hero.role} />
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="#projects"
-                            className="px-8 py-3.5 rounded-full bg-white text-slate-950 font-bold text-base hover:bg-slate-100 transition-all flex items-center gap-2 hover:shadow-[0_10px_20px_-5px_rgba(168,85,247,0.5)] hover:-translate-y-0.5"
-                        >
-                            {t.hero.projects} <ArrowRight size={20} className="text-purple-600" />
-                        </a>
-
-                        <a
-                            href={t.hero.cvFile}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-8 py-3.5 rounded-full bg-slate-800 text-white font-medium text-base border border-slate-700 hover:bg-slate-700 transition-colors flex items-center gap-2"
-                        >
-                            {t.hero.cv} <Download size={20} />
-                        </a>
+                    <div role="group" aria-label={t.hero.focusLabel} className="mb-4 flex flex-wrap justify-center gap-2">
+                        {t.hero.focusAreas.map((area, index) => {
+                            const Icon = focusIcons[index];
+                            return (
+                                <button key={index} type="button" aria-pressed={activeFocus === index} aria-controls="hero-focus-description" onClick={() => setActiveFocus(index)} className={`hero-action inline-flex min-h-11 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activeFocus === index ? "border-indigo-300/60 bg-indigo-400/15 text-indigo-100" : "border-slate-700 bg-slate-900/60 text-slate-400 hover:border-indigo-400/50 hover:text-white"}`}>
+                                    <Icon aria-hidden="true" size={16} />{area.title}
+                                </button>
+                            );
+                        })}
                     </div>
-                </motion.div>
-            </div>
+                    <div id="hero-focus-description" aria-live="polite" aria-atomic="true" className="mx-auto mb-7 min-h-24 w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900/50 px-5 py-4 text-sm leading-relaxed text-slate-300 sm:min-h-20">
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.p key={activeFocus} initial={reducedMotion === false ? { opacity: 0, y: 6 } : false} animate={{ opacity: 1, y: 0 }} exit={reducedMotion === false ? { opacity: 0, y: -6 } : undefined} transition={{ duration: reducedMotion === false ? 0.18 : 0 }}>
+                                {t.hero.focusAreas[activeFocus].description}
+                            </motion.p>
+                        </AnimatePresence>
+                    </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-            >
-                <div className="w-[30px] h-[50px] rounded-full border-2 border-slate-500 flex justify-center p-2">
-                    <motion.div
-                        animate={{ y: [0, 12, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                        className="w-1.5 h-1.5 bg-white rounded-full"
-                    />
+                    <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+                        <a href="#projects" className="hero-action group inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-indigo-400 px-7 py-3.5 font-semibold text-slate-950 hover:bg-indigo-300">
+                            {t.hero.projects}<ArrowRight aria-hidden="true" size={19} className="hero-arrow" />
+                        </a>
+                        <a href={t.hero.cvFile} download="Maria-Alejandra-Ortiz-CV.pdf" className="hero-action inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-slate-600 bg-slate-900/70 px-7 py-3.5 font-medium text-slate-100 hover:border-indigo-300 hover:bg-slate-800">
+                            {t.hero.cv}<Download aria-hidden="true" size={19} />
+                        </a>
+                        <a href="#contact" className="hero-action inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-3.5 font-medium text-slate-300 hover:bg-slate-800 hover:text-white">{t.nav.contact}</a>
+                    </div>
+                    <a href="#about" className="hero-action mt-8 inline-flex items-center gap-2 rounded px-2 py-1 text-sm text-slate-400 hover:text-white">
+                        <ArrowDown aria-hidden="true" size={16} className="hero-scroll-arrow" />{t.nav.about}
+                    </a>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };
