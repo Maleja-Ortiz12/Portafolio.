@@ -48,7 +48,7 @@ test("both languages preserve CV facts without employer names or first-opportuni
             assert.equal(item.github, undefined);
         }
         // Original translations remain available to the unified catalogue.
-        assert.equal(projects.items.length, 5);
+        assert.equal(projects.items.length, 7);
         assert.equal(projects.items[0].title, "Dimension Shift");
     }
     assert.equal(translations.en.hero.role, "Junior Software Developer");

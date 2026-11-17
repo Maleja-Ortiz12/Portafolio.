@@ -1,13 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import { translations } from "../data/translations.ts";
 import { getFeaturedProjects, filterProjects } from "../data/projects.ts";
 
 test("featured catalogue combines existing work and missing CV projects without duplicate salon entries", () => {
     for (const locale of ["es", "en"]) {
         const projects = getFeaturedProjects(translations[locale].projects);
-        assert.equal(projects.length, 7);
-        assert.equal(new Set(projects.map(project => project.id)).size, 7);
+        assert.equal(projects.length, 9);
+        assert.equal(new Set(projects.map(project => project.id)).size, 9);
         assert.ok(!projects.some(project => ["sena-capstone", "unity-2d"].includes(project.id)));
         assert.equal(projects.filter(project => /upt.?ownhair/i.test(project.title)).length, 1);
         for (const id of ["inventory", "agriculture-mobile"]) {
@@ -18,6 +19,30 @@ test("featured catalogue combines existing work and missing CV projects without 
             assert.equal(project.image, undefined);
         }
         assert.deepEqual(projects.find(project => project.id === "agriculture-mobile").tech, ["Flutter", "Dart"]);
+    }
+});
+
+test("requested websites have bilingual copy, exact live links and local extracted photos", () => {
+    const expected = [
+        ["bendita-gracia", "Bendita Gracia", "https://bendita-gracia.benditagraciaccesorios1.workers.dev/", "/images/bendita-gracia.webp"],
+        ["la-lupe", "La Lupe", "https://lalupe.co/", "/images/la-lupe.webp"],
+    ];
+    for (const [id, title, demo, image] of expected) {
+        const localized = ["es", "en"].map(locale => getFeaturedProjects(translations[locale].projects).find(project => project.id === id));
+        for (const project of localized) {
+            assert.ok(project, id);
+            assert.equal(project.title, title);
+            assert.equal(project.demo, demo);
+            assert.equal(project.image, image);
+            assert.equal(project.category, "frontend");
+            assert.ok(project.description && project.detailedDescription);
+            const bytes = readFileSync(new URL(`../public${project.image}`, import.meta.url));
+            assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+            assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+            assert.ok(bytes.length > 1000);
+        }
+        assert.notEqual(localized[0].description, localized[1].description);
+        assert.notEqual(localized[0].detailedDescription, localized[1].detailedDescription);
     }
 });
 
@@ -37,7 +62,7 @@ test("category filtering works for all projects and keeps the same identities ac
         const english = filterProjects(getFeaturedProjects(translations.en.projects), category);
         assert.ok(spanish.length > 0, category);
         assert.deepEqual(spanish.map(project => project.id), english.map(project => project.id));
-        if (category === "all") assert.equal(spanish.length, 7);
+        if (category === "all") assert.equal(spanish.length, 9);
         else assert.ok(spanish.every(project => project.category === category));
     }
 });

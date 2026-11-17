@@ -125,6 +125,16 @@ export const translations = {
                     description: "Sistema integral de gestión para tiendas textiles: ecommerce y panel administrativo avanzado.",
                     detailedDescription: "Una solución completa que combina una tienda virtual para clientes con un potente aplicativo administrativo. El sistema gestiona todo el ciclo comercial: control exhaustivo de inventarios (entradas y salidas), gestión de pedidos web en tiempo real, integración de pagos mediante códigos QR, generación automática de contratos y reportes detallados de ventas y stock.",
                 },
+                {
+                    title: "Bendita Gracia",
+                    description: "Sitio web de velas artesanales, aromas y detalles para regalar, con catálogo fotográfico de sus creaciones.",
+                    detailedDescription: "Página de Bendita Gracia que presenta velas decorativas, arreglos florales en cera, wax melts y sachets aromáticos. Un catálogo visual con fotografías originales para conocer sus productos y encontrar detalles para regalar.",
+                },
+                {
+                    title: "La Lupe",
+                    description: "Sitio web de un restaurante de comida mexicana en Chía, con carta y fotografías de sus platos.",
+                    detailedDescription: "Página de La Lupe, restaurante de cocina mexicana en Chía. Presenta su carta con fotografías de platos como fajitas, tacos de birria y nachos, además de información para visitar el restaurante y contactarlo.",
+                },
             ],
             inProgressTitle: "Proyectos en Desarrollo",
             inProgressSubtitle: "Próximamente... Ideas que están cobrando vida.",
@@ -336,6 +346,16 @@ export const translations = {
                     title: "Between Wools and Fragrances",
                     description: "Comprehensive management system for textile shops: ecommerce and advanced admin panel.",
                     detailedDescription: "A complete solution that combines a virtual store for customers with a powerful administrative application. The system manages the entire commercial cycle: exhaustive inventory control (inflows and outflows), real-time web order management, QR code payment integration, automatic contract generation, and detailed sales and stock reports.",
+                },
+                {
+                    title: "Bendita Gracia",
+                    description: "Website for handmade candles, fragrances and gifts, featuring a photographic catalogue of its creations.",
+                    detailedDescription: "Bendita Gracia's website showcases decorative candles, wax flower arrangements, wax melts and aromatic sachets. A visual catalogue with original photography helps visitors explore the products and find gifts.",
+                },
+                {
+                    title: "La Lupe",
+                    description: "Website for a Mexican restaurant in Chía, featuring its menu and photographs of its dishes.",
+                    detailedDescription: "La Lupe's website presents a Mexican restaurant in Chía. It showcases the menu with photographs of dishes such as fajitas, birria tacos and nachos, alongside information for visiting and contacting the restaurant.",
                 }
             ],
             inProgressTitle: "Projects In Development",

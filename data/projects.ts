@@ -34,6 +34,8 @@ const definitions: ProjectDefinition[] = [
     { id: "uptownhair", source: "existing", index: 2, category: "fullstack", tech: ["React", "NestJS", "TypeScript", "MySQL"], image: "/documents/fondo pagina inicial.JPG", demo: "https://uptownhair-front-production.up.railway.app/" },
     { id: "portfolio", source: "existing", index: 3, category: "frontend", tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"], image: "/documents/fondo_portafolio.JPG" },
     { id: "entrelanas", source: "existing", index: 4, category: "fullstack", tech: ["Next.js", "Laravel", "PostgreSQL"], image: "/images/entrelanasyfragancias.JPG", demo: "https://tejenderasfrontend-production.up.railway.app/" },
+    { id: "bendita-gracia", source: "existing", index: 5, category: "frontend", tech: ["Next.js"], image: "/images/bendita-gracia.webp", demo: "https://bendita-gracia.benditagraciaccesorios1.workers.dev/" },
+    { id: "la-lupe", source: "existing", index: 6, category: "frontend", tech: ["Next.js"], image: "/images/la-lupe.webp", demo: "https://lalupe.co/" },
     { id: "inventory", source: "resume", index: 1, category: "backend" },
     { id: "agriculture-mobile", source: "resume", index: 3, category: "mobile" },
 ];
