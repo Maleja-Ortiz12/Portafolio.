@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## CV documents
+
+The updated CV is available in Spanish at `/documents/cv-es.pdf` and in English at
+`/documents/cv-en.pdf`. The portfolio selects the download for its active language.
+Editable sources are `public/documents/cv-es.html` and `cv-en.html`, sharing `cv.css`.
+The original uploaded `CV_Maria_Alejandra_Ortiz_Tecnologa.pdf` is preserved.
+
+To update a CV, edit its HTML, open it in a browser and print to PDF using A4 paper,
+100% scale, CSS-defined margins and no browser headers or footers. Save over the
+matching `cv-es.pdf` or `cv-en.pdf`. Each CV should have two pages with selectable text.
+Do not infer English proficiency from the existence of the English translation.
+
+Run the content and PDF checks with `node --test tests/*.test.mjs` (Node 24).
+PDF text and pagination checks require `pdftotext` on PATH; otherwise they report
+an explicit skip. Run `npm run lint` and `npm run build` after website changes.
+
 ## Getting Started
 
 First, run the development server:

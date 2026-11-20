@@ -1,0 +1,21 @@
+/* Shared print styles for the editable Spanish and English CVs. */
+@page { size: A4; margin: 15mm 17mm; }
+* { box-sizing: border-box; }
+body { margin: 0; color: #172033; font: 10pt/1.42 Arial, sans-serif; }
+main { max-width: 176mm; margin: auto; }
+h1 { margin: 0 0 5px; font-size: 23pt; line-height: 1.15; color: #193954; }
+.subtitle { font-size: 11pt; font-weight: bold; margin: 0 0 10px; }
+.contact { font-size: 9pt; margin: 0 0 14px; line-height: 1.6; }
+h2 { font-size: 11pt; color: #193954; text-transform: uppercase; letter-spacing: .7px; border-bottom: 1px solid #a6b9c9; padding-bottom: 4px; margin: 17px 0 8px; break-after: avoid; }
+h3 { font-size: 10pt; margin: 11px 0 2px; break-after: avoid; }
+p { margin: 4px 0 7px; }
+ul { padding-left: 16px; margin: 5px 0 9px; }
+li { margin-bottom: 3px; }
+a { color: #193954; text-decoration: none; overflow-wrap: anywhere; }
+.meta { font-size: 9pt; color: #46566b; margin: 2px 0 5px; }
+.skills li { margin-bottom: 4px; }
+article { break-inside: avoid; }
+.page-two { break-before: page; }
+.page-two > h2:first-child { margin-top: 0; }
+@media screen { body { background: #edf1f5; padding: 30px 16px; } main { background: white; padding: 24px; max-width: 210mm; box-shadow: 0 4px 24px #17203318; } .page-two { margin-top: 30px; } }
+@media print { a { color: inherit; } }
