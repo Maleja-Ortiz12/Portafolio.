@@ -98,9 +98,9 @@ const Skills = () => {
                                         <p className="text-slate-500 text-sm leading-relaxed mb-4">
                                             {edu.description}
                                         </p>
-                                        {index === 0 && (
+                                        {edu.certificateFile && (
                                             <a
-                                                href={t.skills.certificateFile}
+                                                href={edu.certificateFile}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"

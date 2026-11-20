@@ -58,12 +58,14 @@ export const translations = {
                     institution: "SENA · CDA Chía",
                     year: "Certificada · noviembre de 2026",
                     description: "Título obtenido en el Centro de Desarrollo Agroempresarial de Chía; certificado expedido en noviembre de 2026.",
+                    certificateFile: "/documents/certificado-tecnologo.pdf",
                 },
                 {
                     title: "Desarrollo Web Backend con NestJS",
                     institution: "SENA / AHK Colombia / Organización KEY",
                     year: "Septiembre–noviembre de 2025",
                     description: "80 horas técnicas y 14 horas de habilidades blandas.",
+                    certificateFile: "/documents/Certificado_Mujeres_Digitales.pdf",
                 },
                 {
                     title: "Técnica en Secretariado",
@@ -294,12 +296,14 @@ export const translations = {
                     institution: "SENA · CDA Chía",
                     year: "Certified · November 2026",
                     description: "Qualification awarded by Centro de Desarrollo Agroempresarial in Chía; certificate issued in November 2026.",
+                    certificateFile: "/documents/certificado-tecnologo.pdf",
                 },
                 {
                     title: "Backend Web Development with NestJS",
                     institution: "SENA / AHK Colombia / KEY Organization",
                     year: "September–November 2025",
                     description: "80 technical hours and 14 soft-skill hours.",
+                    certificateFile: "/documents/Certificado_Mujeres_Digitales.pdf",
                 },
                 {
                     title: "Secretarial Technical Training",

@@ -67,7 +67,13 @@ test("both languages preserve CV facts and internship privacy without first-oppo
 
 test("the awarded qualification links to the uploaded certificate in both languages", () => {
     for (const language of ["es", "en"]) {
-        const { certificateFile, certificateLabel } = translations[language].skills;
+        const { certificateFile, certificateLabel, eduItems } = translations[language].skills;
+        assert.deepEqual(eduItems.map(item => item.certificateFile), [
+            "/documents/certificado-tecnologo.pdf",
+            "/documents/Certificado_Mujeres_Digitales.pdf",
+            undefined,
+            undefined,
+        ]);
         assert.equal(certificateFile, "/documents/certificado-tecnologo.pdf");
         assert.equal(certificateLabel, language === "es" ? "Ver certificado" : "View certificate");
         const pdf = readFileSync(new URL("../public" + certificateFile, import.meta.url));
