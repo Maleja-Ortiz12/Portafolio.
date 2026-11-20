@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import { translations } from "../data/translations.ts";
 
 test("the Spanish profile reflects the supplied CV instead of pre-internship status", () => {
     const { hero, about, experience, skills } = translations.es;
     assert.equal(hero.role, "Desarrolladora de Software Junior");
-    assert.match(about.p1, /certificación en trámite/);
+    assert.match(about.p1, /tecnóloga certificada en Análisis y Desarrollo de Software del SENA/);
+    assert.doesNotMatch(about.p1, /certificación en trámite/);
     assert.doesNotMatch(about.p1 + about.p2, /próxima a iniciar|finalizando mi etapa lectiva/);
     assert.equal(experience.items.length, 1);
     assert.equal(experience.items[0].company, "");
@@ -16,7 +18,7 @@ test("the Spanish profile reflects the supplied CV instead of pre-internship sta
     for (const term of ["SIEM", "WAF", "Cortex", "NIST", "ISO 27001", "N-central", "Mantis", "Excel"]) {
         assert.ok(experience.items[0].description.includes(term), term);
     }
-    assert.equal(skills.eduItems[0].year, "Octubre de 2026 · Certificación en trámite");
+    assert.equal(skills.eduItems[0].year, "Certificada");
     assert.equal(skills.eduItems[1].institution, "SENA / AHK Colombia / Organización KEY");
     assert.match(skills.eduItems[1].description, /80.*14/);
     assert.equal(skills.eduItems[2].year, "2013–2024");
@@ -48,10 +50,22 @@ test("both languages preserve CV facts without employer names or first-opportuni
             assert.equal(item.github, undefined);
         }
         // Original translations remain available to the unified catalogue.
-        assert.equal(projects.items.length, 7);
+        assert.equal(projects.items.length, 8);
         assert.equal(projects.items[0].title, "Dimension Shift");
     }
     assert.equal(translations.en.hero.role, "Junior Software Developer");
-    assert.match(translations.en.about.p1, /certification is pending/);
+    assert.match(translations.en.about.p1, /certified Software Analysis and Development technologist/);
+    assert.doesNotMatch(translations.en.about.p1, /certification is pending/);
+    assert.equal(translations.en.skills.eduItems[0].year, "Certified");
     assert.equal(translations.en.experience.items[0].period, "April–October 2026");
+});
+
+test("the awarded qualification links to the uploaded certificate in both languages", () => {
+    for (const language of ["es", "en"]) {
+        const { certificateFile, certificateLabel } = translations[language].skills;
+        assert.equal(certificateFile, "/documents/certificado-tecnologo.pdf");
+        assert.equal(certificateLabel, language === "es" ? "Ver certificado" : "View certificate");
+        const pdf = readFileSync(new URL("../public" + certificateFile, import.meta.url));
+        assert.equal(pdf.subarray(0, 5).toString(), "%PDF-");
+    }
 });

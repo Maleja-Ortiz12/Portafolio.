@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ExternalLink, Github, Folder, X, Code2 } from "lucide-react";
-import { filterProjects, getFeaturedProjects, type ProjectCategory, type ProjectDetails } from "@/data/projects";
+import { filterProjects, getFeaturedProjects, hasWebsite, type ProjectCategory, type ProjectDetails } from "@/data/projects";
 import { TechnologyBadge } from "@/components/TechnologyBadge";
 
 // Placeholder data - user mentioned grouped by language/tech
@@ -14,11 +14,13 @@ const Projects = () => {
     const reducedMotion = useReducedMotion();
     const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
     const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
-    const categories: ProjectCategory[] = ["all", "gamedev", "frontend", "fullstack", "backend", "mobile"];
-    const filteredProjects = filterProjects(getFeaturedProjects(t.projects), activeCategory);
-    const inProgressProjects = t.projects.inProgressItems.map(item => ({
+    const featuredProjects = getFeaturedProjects(t.projects);
+    const categories = (["all", "gamedev", "frontend", "fullstack", "backend", "mobile"] as ProjectCategory[])
+        .filter(category => category === "all" || featuredProjects.some(project => project.category === category));
+    const filteredProjects = filterProjects(featuredProjects, activeCategory);
+    const inProgressProjects = t.projects.inProgressItems.map((item): ProjectDetails => ({
         ...item, id: `ip-${item.title}`, detailedDescription: item.detailedDescription || "",
-    }));
+    })).filter(hasWebsite);
 
     return (
         <section id="projects" className="projects-3d py-20 bg-slate-950 relative overflow-hidden">
@@ -60,7 +62,8 @@ const Projects = () => {
 
                 {/* Projects Grid */}
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <AnimatePresence>
+                    {/* Keep the first render identical before the browser motion preference is known. */}
+                    <AnimatePresence initial={false}>
                         {filteredProjects.map((project) => (
                             <motion.div
                                 layout
@@ -117,7 +120,7 @@ const Projects = () => {
                 </motion.div>
 
                 {/* In Progress Section */}
-                {t.projects.inProgressItems && (
+                {inProgressProjects.length > 0 && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}

@@ -27,7 +27,7 @@ export const translations = {
         about: {
             title: "Sobre",
             me: "Mí",
-            p1: "Soy tecnóloga en Análisis y Desarrollo de Software del SENA, con certificación en trámite. He desarrollado proyectos full stack, móviles y de videojuegos con React, NestJS, Laravel, Flutter y Unity. Estoy disponible para oportunidades laborales y proyectos que impulsen la innovación y el crecimiento empresarial.",
+            p1: "Soy tecnóloga certificada en Análisis y Desarrollo de Software del SENA. He desarrollado proyectos full stack, móviles y de videojuegos con React, NestJS, Laravel, Flutter y Unity. Estoy disponible para oportunidades laborales y proyectos que impulsen la innovación y el crecimiento empresarial.",
             p2: "Durante mi experiencia práctica en ciberseguridad, monitoreé alertas con SIEM, apoyé la validación de controles NIST e ISO 27001 y automaticé reportes y documentación. Esa experiencia me aporta una visión de seguridad al construir software. Continúo formándome en Power Automate y n8n, con organización, atención al detalle y aprendizaje autónomo.",
             qualities: {
                 ethics: "Ética y Calidad",
@@ -47,13 +47,15 @@ export const translations = {
             groups: ["Lenguajes", "Desarrollo web", "Móvil y videojuegos", "Bases de datos y herramientas", "Automatización · en formación", "Ciberseguridad"],
             techSkills: "Competencias Técnicas",
             eduCert: "Educación y Certificados",
+            certificateFile: "/documents/certificado-tecnologo.pdf",
+            certificateLabel: "Ver certificado",
             continuousLearning: "Aprendizaje Continuo",
             continuousLearningDesc: "Siempre actualizándome con nuevas tecnologías.",
             eduItems: [
                 {
                     title: "Tecnología en Análisis y Desarrollo de Software",
                     institution: "SENA · CDA Chía",
-                    year: "Octubre de 2026 · Certificación en trámite",
+                    year: "Certificada",
                     description: "Formación finalizada en desarrollo de software, con proyectos web, móviles y de videojuegos.",
                 },
                 {
@@ -134,6 +136,11 @@ export const translations = {
                     title: "La Lupe",
                     description: "Sitio web de un restaurante de comida mexicana en Chía, con carta y fotografías de sus platos.",
                     detailedDescription: "Página de La Lupe, restaurante de cocina mexicana en Chía. Presenta su carta con fotografías de platos como fajitas, tacos de birria y nachos, además de información para visitar el restaurante y contactarlo.",
+                },
+                {
+                    title: "TreesSide Developers",
+                    description: "Sitio web de un estudio de software en Colombia, con servicios, proyectos y soluciones digitales a medida.",
+                    detailedDescription: "Sitio web de TreesSide Developers que presenta servicios de desarrollo de software a medida, proyectos del equipo y demos para restaurantes, streaming y logística, además de información de contacto.",
                 },
             ],
             inProgressTitle: "Proyectos en Desarrollo",
@@ -249,7 +256,7 @@ export const translations = {
         about: {
             title: "About",
             me: "Me",
-            p1: "I completed the Software Analysis and Development technology program at SENA; certification is pending. My projects span full-stack development, mobile apps and games using React, NestJS, Laravel, Flutter and Unity. I am available for career opportunities and projects that drive innovation and business growth.",
+            p1: "I am a certified Software Analysis and Development technologist from SENA. My projects span full-stack development, mobile apps and games using React, NestJS, Laravel, Flutter and Unity. I am available for career opportunities and projects that drive innovation and business growth.",
             p2: "During my cybersecurity internship, I monitored SIEM alerts, supported NIST and ISO 27001 control validation, and automated reports and documentation. That experience brings a security perspective to the software I build. I continue learning Power Automate and n8n, with attention to detail, organization and independent learning.",
             qualities: {
                 ethics: "Ethics & Quality",
@@ -269,13 +276,15 @@ export const translations = {
             groups: ["Languages", "Web development", "Mobile & games", "Databases & tools", "Automation · ongoing learning", "Cybersecurity"],
             techSkills: "Technical Competencies",
             eduCert: "Education & Certificates",
+            certificateFile: "/documents/certificado-tecnologo.pdf",
+            certificateLabel: "View certificate",
             continuousLearning: "Continuous Learning",
             continuousLearningDesc: "Always updating myself with new technologies.",
             eduItems: [
                 {
                     title: "Software Analysis and Development Technology",
                     institution: "SENA · CDA Chía",
-                    year: "October 2026 · Certification pending",
+                    year: "Certified",
                     description: "Completed software development program with web, mobile and game projects.",
                 },
                 {
@@ -356,6 +365,11 @@ export const translations = {
                     title: "La Lupe",
                     description: "Website for a Mexican restaurant in Chía, featuring its menu and photographs of its dishes.",
                     detailedDescription: "La Lupe's website presents a Mexican restaurant in Chía. It showcases the menu with photographs of dishes such as fajitas, birria tacos and nachos, alongside information for visiting and contacting the restaurant.",
+                },
+                {
+                    title: "TreesSide Developers",
+                    description: "Website for a software studio in Colombia, featuring services, projects and custom digital solutions.",
+                    detailedDescription: "TreesSide Developers' website presents custom software development services, team projects and demos for restaurants, streaming and logistics, alongside contact information.",
                 }
             ],
             inProgressTitle: "Projects In Development",

@@ -30,15 +30,17 @@ interface ProjectDefinition {
 // Existing demos retain their identities. New CV projects have no invented links or screenshots.
 const definitions: ProjectDefinition[] = [
     { id: "dimension-shift", source: "existing", index: 0, category: "gamedev", tech: ["Unity 3D", "C#", "Game Design"], image: "/documents/imagenjuego.JPG", demo: "https://malejaconeja12.itch.io/dimension-shift" },
-    { id: "emisoras", source: "existing", index: 1, category: "frontend", tech: ["Next.js", "Streaming", "Web Audio API"], image: "/documents/emisoras latinas.JPG", demo: "https://www.emisoraslatinas.online/" },
     { id: "uptownhair", source: "existing", index: 2, category: "fullstack", tech: ["React", "NestJS", "TypeScript", "MySQL"], image: "/documents/fondo pagina inicial.JPG", demo: "https://uptownhair-front-production.up.railway.app/" },
-    { id: "portfolio", source: "existing", index: 3, category: "frontend", tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"], image: "/documents/fondo_portafolio.JPG" },
-    { id: "entrelanas", source: "existing", index: 4, category: "fullstack", tech: ["Next.js", "Laravel", "PostgreSQL"], image: "/images/entrelanasyfragancias.JPG", demo: "https://tejenderasfrontend-production.up.railway.app/" },
     { id: "bendita-gracia", source: "existing", index: 5, category: "frontend", tech: ["Next.js"], image: "/images/bendita-gracia.webp", demo: "https://bendita-gracia.benditagraciaccesorios1.workers.dev/" },
     { id: "la-lupe", source: "existing", index: 6, category: "frontend", tech: ["Next.js"], image: "/images/la-lupe.webp", demo: "https://lalupe.co/" },
+    { id: "treesside-developers", source: "existing", index: 7, category: "frontend", tech: ["Next.js"], image: "/images/treesside-developers.webp", demo: "https://treesside-developers.malejawork12.workers.dev/" },
     { id: "inventory", source: "resume", index: 1, category: "backend" },
     { id: "agriculture-mobile", source: "resume", index: 3, category: "mobile" },
 ];
+
+export function hasWebsite(project: Pick<ProjectDetails, "demo">): boolean {
+    return project.demo === "/" || /^https?:\/\/\S+$/.test(project.demo ?? "");
+}
 
 export function getFeaturedProjects(copy: ProjectCopy): ProjectDetails[] {
     return definitions.map(({ source, index, tech, ...definition }) => {
@@ -50,7 +52,7 @@ export function getFeaturedProjects(copy: ProjectCopy): ProjectDetails[] {
             detailedDescription: "detailedDescription" in content ? content.detailedDescription : content.description,
             tech: tech ?? ("stack" in content ? content.stack.split(" · ") : []),
         };
-    });
+    }).filter(hasWebsite);
 }
 
 export function filterProjects(projects: ProjectDetails[], category: ProjectCategory): ProjectDetails[] {
