@@ -3,6 +3,8 @@
 * { box-sizing: border-box; }
 body { margin: 0; color: #172033; font: 10pt/1.42 Arial, sans-serif; }
 main { max-width: 176mm; margin: auto; }
+header { display: flow-root; }
+.portrait { float: right; width: 24mm; height: 32mm; margin: 0 0 8px 16px; object-fit: cover; object-position: center 35%; border-radius: 4px; }
 h1 { margin: 0 0 5px; font-size: 23pt; line-height: 1.15; color: #193954; }
 .subtitle { font-size: 11pt; font-weight: bold; margin: 0 0 10px; }
 .contact { font-size: 9pt; margin: 0 0 14px; line-height: 1.6; }

@@ -1,12 +1,35 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { readFileSync } from "node:fs";
+import { accessSync, constants, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const documents = new URL("../public/documents/", import.meta.url);
 
 for (const language of ["es", "en"]) {
+    test(`the ${language} CV header includes the accessible existing profile photo`, () => {
+        const document = new URL(`cv-${language}.html`, documents);
+        const html = readFileSync(document, "utf8");
+        const header = html.match(/<header\b[^>]*>([\s\S]*?)<\/header>/)?.[1];
+        assert.ok(header, "CV has a header");
+        const photo = header.match(/<img\b[^>]*>/)?.[0];
+        assert.ok(photo, "header includes a profile photograph");
+        const source = photo.match(/\bsrc="([^"]+)"/)?.[1];
+        assert.equal(source, "../images/maria-alejandra-ortiz.jpeg");
+        const alt = language === "es"
+            ? "Fotografía de María Alejandra Ortiz Páez"
+            : "Portrait of María Alejandra Ortiz Páez";
+        assert.ok(photo.includes(`alt="${alt}"`), "portrait has localized descriptive alt text");
+        const image = new URL(source, document);
+        accessSync(image, constants.R_OK);
+        assert.deepEqual(readFileSync(image).subarray(0, 3), Buffer.from([0xff, 0xd8, 0xff]));
+    });
+
+    test(`the ${language} CV PDF embeds the profile photograph`, () => {
+        const pdf = readFileSync(new URL(`cv-${language}.pdf`, documents), "latin1");
+        assert.ok(/\/Subtype\s*\/Image\b/.test(pdf), "PDF includes an embedded image object");
+    });
+
     test(`the ${language} CV preserves source facts in an editable document and a two-page PDF`, t => {
         const html = readFileSync(new URL(`cv-${language}.html`, documents), "utf8");
         assert.ok(html.includes(`<html lang="${language}">`));
