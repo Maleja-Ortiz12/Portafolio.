@@ -12,9 +12,9 @@ const Skills = () => {
 
     const skills = [
         { icon: Code2, items: ["JavaScript", "TypeScript", "PHP", "Python", "C++", "C#", "Dart"] },
-        { icon: Layout, items: ["React", "HTML", "CSS", "NestJS", "Laravel", "Node.js"] },
+        { icon: Layout, items: ["React", "Next.js", "HTML5", "CSS3", "NestJS", "Laravel", "Node.js", "REST APIs", "SEO", "Open Graph"] },
         { icon: Server, items: ["Flutter", "Unity (C#)"] },
-        { icon: Database, items: ["MySQL", "PostgreSQL", "Git / GitHub", "Docker", "Linux"] },
+        { icon: Database, items: ["MySQL", "PostgreSQL", "Git / GitHub", "Docker", "Linux", "Cloudflare Workers"] },
         { icon: Workflow, items: ["Excel", "Power Automate", "n8n"] },
         { icon: ShieldCheck, items: ["SIEM", "WAF", "Cortex", "N-central", "Mantis", "NIST", "ISO 27001"] },
     ];

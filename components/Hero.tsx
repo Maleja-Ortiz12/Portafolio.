@@ -90,7 +90,7 @@ const Hero = () => {
                         <a href="#projects" className="hero-action group inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-indigo-400 px-7 py-3.5 font-semibold text-slate-950 hover:bg-indigo-300">
                             {t.hero.projects}<ArrowRight aria-hidden="true" size={19} className="hero-arrow" />
                         </a>
-                        <a href={t.hero.cvFile} download="Maria-Alejandra-Ortiz-CV.pdf" className="hero-action inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-slate-600 bg-slate-900/70 px-7 py-3.5 font-medium text-slate-100 hover:border-indigo-300 hover:bg-slate-800">
+                        <a href={t.hero.cvFile} download={t.hero.cvDownload} className="hero-action inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-slate-600 bg-slate-900/70 px-7 py-3.5 font-medium text-slate-100 hover:border-indigo-300 hover:bg-slate-800">
                             {t.hero.cv}<Download aria-hidden="true" size={19} />
                         </a>
                         <a href="#contact" className="hero-action inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-3.5 font-medium text-slate-300 hover:bg-slate-800 hover:text-white">{t.nav.contact}</a>

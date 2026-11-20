@@ -12,23 +12,24 @@ export const translations = {
         },
         hero: {
             available: "Disponible para oportunidades laborales y proyectos de innovación y crecimiento empresarial",
-            role: "Desarrolladora de Software Junior",
-            summary: "Desarrollo web, móvil y videojuegos con una visión de seguridad. Chía, Cundinamarca · Colombia.",
+            role: "Desarrolladora Full Stack",
+            summary: "Sitios web en producción, aplicaciones móviles y videojuegos con una visión de seguridad. Chía, Cundinamarca · Colombia.",
             focusLabel: "Explora mi perfil",
             focusAreas: [
-                { title: "Desarrollo", description: "Proyectos con React, NestJS y Laravel; aplicaciones móviles con Flutter y videojuegos con Unity." },
+                { title: "Desarrollo", description: "Soluciones con React, Next.js, NestJS y Laravel; aplicaciones móviles con Flutter y videojuegos con Unity." },
                 { title: "Ciberseguridad", description: "Experiencia en ciberseguridad: monitoreo SIEM, análisis con WAF y Cortex, y apoyo a controles NIST e ISO 27001." },
-                { title: "Automatización", description: "Automatización de reportes en Excel y formación continua en Power Automate y n8n." },
+                { title: "Automatización", description: "Automatización de procesos y reportes con Excel, Power Automate y n8n." },
             ],
             projects: "Ver Proyectos",
             cv: "Descargar CV",
-            cvFile: "/documents/maria-alejandra-ortiz-cv.pdf",
+            cvFile: "/documents/cv-es.pdf",
+            cvDownload: "Maria-Alejandra-Ortiz-CV-ES.pdf",
         },
         about: {
             title: "Sobre",
             me: "Mí",
-            p1: "Soy tecnóloga certificada en Análisis y Desarrollo de Software del SENA. He desarrollado proyectos full stack, móviles y de videojuegos con React, NestJS, Laravel, Flutter y Unity. Estoy disponible para oportunidades laborales y proyectos que impulsen la innovación y el crecimiento empresarial.",
-            p2: "Durante mi experiencia práctica en ciberseguridad, monitoreé alertas con SIEM, apoyé la validación de controles NIST e ISO 27001 y automaticé reportes y documentación. Esa experiencia me aporta una visión de seguridad al construir software. Continúo formándome en Power Automate y n8n, con organización, atención al detalle y aprendizaje autónomo.",
+            p1: "Soy tecnóloga certificada en Análisis y Desarrollo de Software del SENA (2026) y desarrolladora full stack en TreesSide Developers. Desarrollo sitios web en producción para clientes de comercio, gastronomía y servicios: catálogos en línea, sitios corporativos y flujos de venta por WhatsApp, con diseño responsive, SEO y despliegue en Cloudflare Workers.",
+            p2: "Mis proyectos abarcan React, Next.js, NestJS, Laravel, Flutter y Unity. Mi práctica en ciberseguridad incluyó monitoreo SIEM, análisis con WAF y Cortex, validación de controles NIST e ISO 27001 y automatización de reportes en Excel. Esa experiencia me aporta una visión de seguridad al construir software, complementada con automatización de procesos en Power Automate y n8n.",
             qualities: {
                 ethics: "Ética y Calidad",
                 ethicsDesc: "Compromiso inquebrantable con el desarrollo de software robusto y responsable.",
@@ -44,7 +45,7 @@ export const translations = {
             title: "Habilidades y",
             education: "Educación",
             subtitle: "Herramientas, formación y conocimientos de desarrollo, seguridad y automatización incluidos en mi hoja de vida.",
-            groups: ["Lenguajes", "Desarrollo web", "Móvil y videojuegos", "Bases de datos y herramientas", "Automatización · en formación", "Ciberseguridad"],
+            groups: ["Lenguajes", "Desarrollo web", "Móvil y videojuegos", "Bases de datos y herramientas", "Automatización", "Ciberseguridad"],
             techSkills: "Competencias Técnicas",
             eduCert: "Educación y Certificados",
             certificateFile: "/documents/certificado-tecnologo.pdf",
@@ -55,8 +56,8 @@ export const translations = {
                 {
                     title: "Tecnología en Análisis y Desarrollo de Software",
                     institution: "SENA · CDA Chía",
-                    year: "Certificada",
-                    description: "Formación finalizada en desarrollo de software, con proyectos web, móviles y de videojuegos.",
+                    year: "Certificada · noviembre de 2026",
+                    description: "Título obtenido en el Centro de Desarrollo Agroempresarial de Chía; certificado expedido en noviembre de 2026.",
                 },
                 {
                     title: "Desarrollo Web Backend con NestJS",
@@ -170,6 +171,12 @@ export const translations = {
             learning: "Profesional",
             items: [
                 {
+                    role: "Desarrolladora de Software",
+                    company: "TreesSide Developers",
+                    period: "2026–actualidad",
+                    description: "Desarrollo de sitios web y soluciones a la medida para comercio, gastronomía y servicios. Catálogos con filtros y pedidos por WhatsApp, SEO con Open Graph y Twitter Cards, imágenes WebP y accesibilidad. Despliegue en Cloudflare Workers y colaboración en equipo con metodología ágil.",
+                },
+                {
                     role: "Practicante en Ciberseguridad",
                     company: "",
                     period: "Abril–octubre de 2026",
@@ -180,7 +187,7 @@ export const translations = {
         services: {
             title: "Servicios y",
             subtitle: "Soluciones",
-            intro: "Como desarrolladora junior, puedo aportar en desarrollo web y móvil, bases de datos, automatización y apoyo en ciberseguridad, con disposición para aprender y trabajar en equipo.",
+            intro: "Desarrollo sitios web y soluciones a la medida para negocios, con experiencia en aplicaciones móviles, bases de datos, automatización y apoyo en ciberseguridad.",
             items: [
                 {
                     title: "Desarrollo Web y Móvil",
@@ -192,7 +199,7 @@ export const translations = {
                 },
                 {
                     title: "Automatización de Reportes",
-                    description: "Experiencia con reportes en Excel y formación en Power Automate y n8n.",
+                    description: "Automatización de procesos y reportes con Excel, Power Automate y n8n.",
                 },
                 {
                     title: "Apoyo en Ciberseguridad",
@@ -201,7 +208,7 @@ export const translations = {
             ],
             keyRoles: {
                 title: "Roles Clave",
-                items: ["Desarrolladora Junior", "Desarrollo Web y Móvil", "Apoyo en Ciberseguridad", "Documentación Técnica"]
+                items: ["Desarrolladora Full Stack", "Desarrollo Web y Móvil", "Apoyo en Ciberseguridad", "Documentación Técnica"]
             },
             softSkills: {
                 title: "Habilidades Transversales",
@@ -210,7 +217,7 @@ export const translations = {
         },
         footer: {
             title: "¿Tienes un proyecto en mente?",
-            subtitle: "Estoy abierta a oportunidades como desarrolladora junior y a proyectos donde pueda aportar mis conocimientos de desarrollo y seguridad.",
+            subtitle: "Estoy abierta a oportunidades de desarrollo full stack y a proyectos donde pueda aportar soluciones web, móviles, de automatización y seguridad.",
             cta: "¡Hablemos!",
             whatsapp: "Escríbeme al WhatsApp",
             rights: "Todos los derechos reservados.",
@@ -236,28 +243,29 @@ export const translations = {
             services: "Services",
             projects: "Projects",
             skills: "Skills",
-            experience: "Trajectory",
+            experience: "Experience",
             contact: "Contact",
         },
         hero: {
             available: "Available for career opportunities, innovation and business growth projects",
-            role: "Junior Software Developer",
-            summary: "Web, mobile and game development with a security perspective. Chía, Cundinamarca · Colombia.",
+            role: "Full-Stack Developer",
+            summary: "Live websites, mobile applications and games with a security perspective. Chía, Cundinamarca · Colombia.",
             focusLabel: "Explore my profile",
             focusAreas: [
-                { title: "Development", description: "Projects with React, NestJS and Laravel; mobile applications with Flutter and games with Unity." },
+                { title: "Development", description: "Solutions with React, Next.js, NestJS and Laravel; mobile applications with Flutter and games with Unity." },
                 { title: "Cybersecurity", description: "Cybersecurity experience: SIEM monitoring, WAF and Cortex analysis, and support for NIST and ISO 27001 controls." },
-                { title: "Automation", description: "Excel report automation and ongoing learning in Power Automate and n8n." },
+                { title: "Automation", description: "Process and report automation with Excel, Power Automate and n8n." },
             ],
             projects: "View Projects",
             cv: "Download CV",
-            cvFile: "/documents/maria-alejandra-ortiz-cv.pdf",
+            cvFile: "/documents/cv-en.pdf",
+            cvDownload: "Maria-Alejandra-Ortiz-CV-EN.pdf",
         },
         about: {
             title: "About",
             me: "Me",
-            p1: "I am a certified Software Analysis and Development technologist from SENA. My projects span full-stack development, mobile apps and games using React, NestJS, Laravel, Flutter and Unity. I am available for career opportunities and projects that drive innovation and business growth.",
-            p2: "During my cybersecurity internship, I monitored SIEM alerts, supported NIST and ISO 27001 control validation, and automated reports and documentation. That experience brings a security perspective to the software I build. I continue learning Power Automate and n8n, with attention to detail, organization and independent learning.",
+            p1: "I am a certified Software Analysis and Development technologist from SENA (2026) and a full-stack developer at TreesSide Developers. I build live websites for retail, hospitality and service-sector clients: online catalogues, corporate websites and WhatsApp sales flows, with responsive design, SEO and deployment to Cloudflare Workers.",
+            p2: "My projects use React, Next.js, NestJS, Laravel, Flutter and Unity. My cybersecurity internship involved SIEM monitoring, WAF and Cortex analysis, NIST and ISO 27001 control validation, and Excel report automation. This experience brings a security perspective to the software I build, complemented by process automation with Power Automate and n8n.",
             qualities: {
                 ethics: "Ethics & Quality",
                 ethicsDesc: "Unwavering commitment to robust and responsible software development.",
@@ -273,7 +281,7 @@ export const translations = {
             title: "Skills &",
             education: "Education",
             subtitle: "Development, security and automation tools, education and knowledge from my résumé.",
-            groups: ["Languages", "Web development", "Mobile & games", "Databases & tools", "Automation · ongoing learning", "Cybersecurity"],
+            groups: ["Languages", "Web development", "Mobile & games", "Databases & tools", "Automation", "Cybersecurity"],
             techSkills: "Technical Competencies",
             eduCert: "Education & Certificates",
             certificateFile: "/documents/certificado-tecnologo.pdf",
@@ -282,10 +290,10 @@ export const translations = {
             continuousLearningDesc: "Always updating myself with new technologies.",
             eduItems: [
                 {
-                    title: "Software Analysis and Development Technology",
+                    title: "Technologist Qualification in Software Analysis and Development",
                     institution: "SENA · CDA Chía",
-                    year: "Certified",
-                    description: "Completed software development program with web, mobile and game projects.",
+                    year: "Certified · November 2026",
+                    description: "Qualification awarded by Centro de Desarrollo Agroempresarial in Chía; certificate issued in November 2026.",
                 },
                 {
                     title: "Backend Web Development with NestJS",
@@ -398,6 +406,12 @@ export const translations = {
             learning: "Experience",
             items: [
                 {
+                    role: "Software Developer",
+                    company: "TreesSide Developers",
+                    period: "2026–present",
+                    description: "Develop websites and custom solutions for retail, hospitality and service-sector clients. Build catalogues with filters and WhatsApp ordering flows, SEO with Open Graph and Twitter Cards, WebP images and accessibility improvements. Deploy to Cloudflare Workers and collaborate with an agile team.",
+                },
+                {
                     role: "Cybersecurity Intern",
                     company: "",
                     period: "April–October 2026",
@@ -408,7 +422,7 @@ export const translations = {
         services: {
             title: "Services &",
             subtitle: "Solutions",
-            intro: "As a junior developer, I can contribute to web and mobile development, databases, automation and cybersecurity support, with a willingness to learn and collaborate.",
+            intro: "I build websites and custom solutions for businesses, with experience in mobile applications, databases, automation and cybersecurity support.",
             items: [
                 {
                     title: "Web & Mobile Development",
@@ -420,7 +434,7 @@ export const translations = {
                 },
                 {
                     title: "Report Automation",
-                    description: "Excel reporting experience and ongoing learning in Power Automate and n8n.",
+                    description: "Process and report automation with Excel, Power Automate and n8n.",
                 },
                 {
                     title: "Cybersecurity Support",
@@ -429,7 +443,7 @@ export const translations = {
             ],
             keyRoles: {
                 title: "Key Roles",
-                items: ["Junior Developer", "Web & Mobile Development", "Cybersecurity Support", "Technical Documentation"]
+                items: ["Full-Stack Developer", "Web & Mobile Development", "Cybersecurity Support", "Technical Documentation"]
             },
             softSkills: {
                 title: "Soft Skills",
@@ -438,7 +452,7 @@ export const translations = {
         },
         footer: {
             title: "Have a project in mind?",
-            subtitle: "I am open to junior developer opportunities and projects where I can contribute my development and security knowledge.",
+            subtitle: "I am open to full-stack development opportunities and projects where I can contribute web, mobile, automation and security solutions.",
             cta: "Let's Talk!",
             whatsapp: "Text me on WhatsApp",
             rights: "All rights reserved.",
